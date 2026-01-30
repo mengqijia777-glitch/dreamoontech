@@ -284,7 +284,7 @@
                                     <div class="sec-head mb-50">
                                         <h6 class="sub-head">Send a <span class="fw-200">message</span></h6>
                                     </div>
-                                    <form id="contact-form" method="post" action="contact.php">
+                                    <form id="contact-form">
 
                                         <div class="messages"></div>
 
@@ -457,6 +457,57 @@
 
     <!-- custom scripts -->
     <script src="assets/js/inner_pages.js"></script>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("jkcYPWVySGRJHFsIg");
+        })();
+    </script>
+
+    <!-- Contact Form Handler -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span>Sending...</span>';
+            btn.disabled = true;
+
+            const formData = {
+                name: document.getElementById('form_name').value,
+                email: document.getElementById('form_email').value,
+                message: document.getElementById('form_message').value
+            };
+
+            emailjs.send('service_123456', 'template_y6afsva', formData)
+                .then(function () {
+                    const messagesDiv = document.querySelector('.messages');
+                    messagesDiv.innerHTML = '<div class="alert alert-success" style="color: #4CAF50; padding: 15px; border-radius: 10px; margin-top: 20px;">Message sent successfully! We will get back to you soon.</div>';
+                    document.getElementById('contact-form').reset();
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+
+                    setTimeout(() => {
+                        messagesDiv.innerHTML = '';
+                    }, 5000);
+                }, function (error) {
+                    const messagesDiv = document.querySelector('.messages');
+                    messagesDiv.innerHTML = '<div class="alert alert-error" style="color: #f44336; padding: 15px; border-radius: 10px; margin-top: 20px;">Failed to send message. Please try again or contact us directly at contact@dreamoontech.com</div>';
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+
+                    console.error('EmailJS Error:', error);
+                    setTimeout(() => {
+                        messagesDiv.innerHTML = '';
+                    }, 5000);
+                });
+        });
+    </script>
 
 </body>
 
