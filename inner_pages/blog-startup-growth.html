@@ -103,6 +103,7 @@
             color: #fff;
             margin-top: 50px;
             margin-bottom: 25px;
+            letter-spacing: -0.5px;
         }
 
         .blog-content article h3 {
@@ -111,6 +112,7 @@
             color: #fff;
             margin-top: 40px;
             margin-bottom: 20px;
+            letter-spacing: -0.3px;
         }
 
         .blog-content article p {
@@ -118,6 +120,7 @@
             line-height: 1.8;
             color: #a4a4a4;
             margin-bottom: 20px;
+            letter-spacing: 0.2px;
         }
 
         .blog-content article ul {
@@ -210,6 +213,87 @@
             background: var(--main-color);
             border-color: var(--main-color);
             color: #0e0f11;
+        }
+
+        /* Blog Navigation */
+        .blog-navigation {
+            background: var(--theme-color);
+            padding: 0 0 100px;
+        }
+
+        .blog-navigation .nav-links {
+            display: flex;
+            gap: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 0;
+        }
+
+        .blog-navigation .nav-link {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .blog-navigation .nav-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .blog-navigation .nav-link.prev {
+            justify-content: flex-start;
+        }
+
+        .blog-navigation .nav-link.next {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        .blog-navigation .nav-link.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .blog-navigation .nav-icon {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--main-color);
+            flex-shrink: 0;
+        }
+
+        .blog-navigation .nav-link.prev .nav-icon {
+            margin-right: 20px;
+        }
+
+        .blog-navigation .nav-link.next .nav-icon {
+            margin-left: 20px;
+        }
+
+        .blog-navigation .nav-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .blog-navigation .nav-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8e8e8e;
+            margin-bottom: 5px;
+        }
+
+        .blog-navigation .nav-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            line-height: 1.4;
+            max-width: 300px;
         }
 
         @media screen and (max-width: 992px) {
@@ -548,6 +632,38 @@
                 </section>
 
                 <!-- ==================== End Blog Share ==================== -->
+
+                <!-- ==================== Start Blog Navigation ==================== -->
+                <section class="blog-navigation">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="nav-links">
+                                    <a href="blog-facebook-marketing.html" class="nav-link prev">
+                                        <div class="nav-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                        </div>
+                                        <div class="nav-info">
+                                            <div class="nav-label">Previous</div>
+                                            <div class="nav-title">The 8 Evolutionary Paths of Facebook Marketing</div>
+                                        </div>
+                                    </a>
+                                    <a href="blog-healthcare-agencies-grow-customer.html" class="nav-link next">
+                                        <div class="nav-info">
+                                            <div class="nav-label">Next</div>
+                                            <div class="nav-title">How Healthcare Agencies Can Leverage the Internet</div>
+                                        </div>
+                                        <div class="nav-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Blog Navigation ==================== -->
 
             </main>
 

@@ -41,8 +41,8 @@
         .blog-detail-header .blog-meta-item { display: flex; align-items: center; color: #8e8e8e; font-size: 14px; }
         .blog-detail-header .blog-meta-item svg { width: 16px; height: 16px; margin-right: 8px; }
         .blog-content { background: var(--theme-color); padding: 100px 0; }
-        .blog-content article h2 { font-size: 36px; font-weight: 500; color: #fff; margin-top: 50px; margin-bottom: 25px; }
-        .blog-content article p { font-size: 18px; line-height: 1.8; color: #a4a4a4; margin-bottom: 20px; }
+        .blog-content article h2 { font-size: 36px; font-weight: 500; color: #fff; margin-top: 50px; margin-bottom: 25px; letter-spacing: -0.5px; }
+        .blog-content article p { font-size: 18px; line-height: 1.8; color: #a4a4a4; margin-bottom: 20px; letter-spacing: 0.2px; }
         .blog-content article ul { margin: 20px 0 30px 30px; }
         .blog-content article ul li { font-size: 18px; line-height: 1.8; color: #a4a4a4; margin-bottom: 12px; position: relative; padding-left: 15px; }
         .blog-content article ul li::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: var(--main-color); border-radius: 50%; }
@@ -56,6 +56,20 @@
         .blog-share .share-icons { display: flex; gap: 15px; }
         .blog-share .share-icons a { width: 45px; height: 45px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; transition: all 0.3s ease; }
         .blog-share .share-icons a:hover { background: var(--main-color); border-color: var(--main-color); color: #0e0f11; }
+        /* Blog Navigation */
+        .blog-navigation { background: var(--theme-color); padding: 0 0 100px; }
+        .blog-navigation .nav-links { display: flex; gap: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 40px 0; }
+        .blog-navigation .nav-link { flex: 1; display: flex; align-items: center; text-decoration: none; transition: all 0.3s ease; }
+        .blog-navigation .nav-link:hover { transform: translateY(-3px); }
+        .blog-navigation .nav-link.prev { justify-content: flex-start; }
+        .blog-navigation .nav-link.next { justify-content: flex-end; text-align: right; }
+        .blog-navigation .nav-link.disabled { opacity: 0.3; pointer-events: none; }
+        .blog-navigation .nav-icon { width: 45px; height: 45px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--main-color); flex-shrink: 0; }
+        .blog-navigation .nav-link.prev .nav-icon { margin-right: 20px; }
+        .blog-navigation .nav-link.next .nav-icon { margin-left: 20px; }
+        .blog-navigation .nav-icon svg { width: 18px; height: 18px; }
+        .blog-navigation .nav-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #8e8e8e; margin-bottom: 5px; }
+        .blog-navigation .nav-title { font-size: 16px; font-weight: 500; color: #fff; line-height: 1.4; max-width: 300px; }
     </style>
 
 </head>
@@ -194,6 +208,23 @@
                         <a href="https://www.facebook.com/sharer/sharer.php?u=https://dreamoontech.com/2024/06/business-growth-strategies/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://twitter.com/intent/tweet?url=https://dreamoontech.com/2024/06/business-growth-strategies/&text=Business Growth Strategies" target="_blank"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://dreamoontech.com/2024/06/business-growth-strategies/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div></div>
+            </div>
+        </section>
+
+        <section class="blog-navigation">
+            <div class="container">
+                <div class="row"><div class="col-lg-10 offset-lg-1">
+                    <div class="nav-links">
+                        <a href="blog-retrieval-auto-generated-read-content-models.html" class="nav-link prev">
+                            <div class="nav-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></div>
+                            <div class="nav-info"><div class="nav-label">Previous</div><div class="nav-title">Retrieval Auto Generated Read Content Models</div></div>
+                        </a>
+                        <a href="blog-entrepreneurial-journeys.html" class="nav-link next">
+                            <div class="nav-info"><div class="nav-label">Next</div><div class="nav-title">Entrepreneurial Journeys</div></div>
+                            <div class="nav-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></div>
+                        </a>
                     </div>
                 </div></div>
             </div>
