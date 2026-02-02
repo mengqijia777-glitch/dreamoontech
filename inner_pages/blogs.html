@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Adelaide web design, website development, SEO, digital marketing, small business">
+    <meta name="description" content="Digital Marketing Blog for Adelaide Small Businesses | DreamoonTech">
+    <meta name="author" content="DreamoonTech">
+
+    <!-- Title  -->
+    <title>Digital Marketing Blog for Adelaide Small Businesses | DreamoonTech</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/imgs/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="../common/css/plugins.css">
+
+    <!-- Core Style Css -->
+    <link rel="stylesheet" href="../common/css/common_style.css">
+    <link rel="stylesheet" href="../assets/css/home9-style.css">
+
+    <style>
+        /* ==================== Blogs Page Styles ==================== */
+
+        /* Blog Header */
+        .blog-header {
+            padding: 180px 0 100px;
+            background: var(--theme-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -20%;
+            width: 60%;
+            bottom: 0;
+            background: rgba(208, 255, 113, 0.03);
+            pointer-events: none;
+            border-radius: 50%;
+            filter: blur(150px);
+        }
+
+        /* Stats Section */
+        .blog-stats {
+            background: #121212;
+            padding: 60px 0;
+            margin-top: -1px;
+        }
+
+        .blog-stats .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        .blog-stats .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+        }
+
+        .blog-stats .stat-number {
+            font-size: 56px;
+            font-weight: 600;
+            color: #d0ff71;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .blog-stats .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8e8e8e;
+        }
+
+        /* Featured Posts Section */
+        .featured-posts {
+            padding: 100px 0;
+        }
+
+        .featured-posts .section-title-blogs h2 {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+            color: #fff;
+        }
+
+        .featured-posts .section-title-blogs p {
+            font-size: 18px;
+            color: #8e8e8e;
+        }
+
+        .featured-posts .post-card {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .featured-posts .post-card .post-image {
+            position: relative;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .featured-posts .post-card .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .featured-posts .post-card:hover .post-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-posts .post-card .post-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70%;
+            background: linear-gradient(to top, #0e0f11, transparent);
+            pointer-events: none;
+        }
+
+        .featured-posts .post-card .post-date {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            padding: 8px 18px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #fff;
+            z-index: 2;
+        }
+
+        .featured-posts .post-card .post-content {
+            padding: 0 40px 40px;
+        }
+
+        .featured-posts .post-card .post-category {
+            display: inline-block;
+            color: #d0ff71;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .featured-posts .post-card .post-title {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .featured-posts .post-card .post-title a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .featured-posts .post-card .post-title a:hover {
+            color: #d0ff71;
+        }
+
+        .featured-posts .post-card .post-excerpt {
+            color: #8e8e8e;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .featured-posts .post-card .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .featured-posts .post-card .post-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .featured-posts .post-card .post-author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .featured-posts .post-card .post-author span {
+            font-size: 14px;
+            color: #a4a4a4;
+        }
+
+        .featured-posts .post-card .read-more {
+            display: flex;
+            align-items: center;
+            color: #d0ff71;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .featured-posts .post-card .read-more svg {
+            width: 18px;
+            height: 18px;
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-posts .post-card:hover .read-more svg {
+            transform: translateX(5px);
+        }
+
+        /* All Posts Section */
+        .all-posts-section {
+            background: var(--theme-color);
+            padding: 100px 0;
+        }
+
+        .all-posts-section .section-title-blogs h2 {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+            color: #fff;
+        }
+
+        .all-posts-section .section-title-blogs p {
+            font-size: 18px;
+            color: #8e8e8e;
+            margin-bottom: 50px;
+        }
+
+        .blog-list-item {
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .blog-list-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .blog-list-item .post-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(208, 255, 113, 0.1);
+            border-radius: 50%;
+            color: #d0ff71;
+            font-size: 18px;
+            font-weight: 600;
+            margin-right: 30px;
+        }
+
+        .blog-list-item .post-info {
+            flex: 1;
+        }
+
+        .blog-list-item .post-title {
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .blog-list-item .post-title a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .blog-list-item .post-title a:hover {
+            color: #d0ff71;
+        }
+
+        .blog-list-item .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            font-size: 14px;
+            color: #8e8e8e;
+        }
+
+        .blog-list-item .post-meta span {
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-list-item .post-meta svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            opacity: 0.6;
+        }
+
+        /* CTA Section */
+        .blogs-cta {
+            background: var(--theme-color);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .blogs-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10%;
+            width: 40%;
+            height: 100%;
+            background: rgba(208, 255, 113, 0.03);
+            pointer-events: none;
+            border-radius: 50%;
+            filter: blur(150px);
+        }
+
+        .blogs-cta h2 {
+            font-size: 48px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+            position: relative;
+        }
+
+        .blogs-cta p {
+            font-size: 18px;
+            color: #8e8e8e;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .blogs-cta .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 40px;
+            background: #d0ff71;
+            color: #0e0f11;
+            font-weight: 500;
+            font-size: 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .blogs-cta .btn-cta:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(208, 255, 113, 0.3);
+        }
+
+        .blogs-cta .btn-cta svg {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+        }
+
+        /* Pagination */
+        .blogs-pagination {
+            padding: 60px 0 100px;
+        }
+
+        .blogs-pagination ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .blogs-pagination li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .blogs-pagination li a:hover,
+        .blogs-pagination li a.active {
+            background: #d0ff71;
+            border-color: #d0ff71;
+            color: #0e0f11;
+        }
+
+        .blogs-pagination li.page-next {
+            width: auto;
+            padding: 0 30px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 992px) {
+            .blog-header {
+                padding: 140px 0 80px;
+            }
+
+            .featured-posts {
+                padding: 60px 0;
+            }
+
+            .featured-posts .section-title-blogs h2,
+            .all-posts-section .section-title-blogs h2 {
+                font-size: 36px;
+            }
+
+            .featured-posts .post-card .post-image {
+                height: 320px;
+            }
+
+            .featured-posts .post-card .post-title {
+                font-size: 20px;
+            }
+
+            .blog-list-item {
+                flex-direction: column;
+            }
+
+            .blog-list-item .post-number {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .blogs-cta h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .blog-header {
+                padding: 120px 0 60px;
+            }
+
+            .featured-posts .section-title-blogs h2,
+            .all-posts-section .section-title-blogs h2 {
+                font-size: 28px;
+            }
+
+            .featured-posts .post-card {
+                margin-bottom: 40px;
+            }
+
+            .featured-posts .post-card .post-image {
+                height: 250px;
+            }
+
+            .featured-posts .post-card .post-content {
+                padding: 0 20px 30px;
+            }
+
+            .featured-posts .post-card .post-title {
+                font-size: 18px;
+            }
+
+            .blog-stats .stat-item {
+                padding: 20px 10px;
+            }
+
+            .blog-stats .stat-number {
+                font-size: 40px;
+            }
+
+            .blogs-cta {
+                padding: 60px 0;
+            }
+
+            .blogs-cta h2 {
+                font-size: 28px;
+            }
+
+            .blogs-cta .btn-cta {
+                padding: 14px 30px;
+                font-size: 14px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ==================== Start Loading ==================== -->
+    <div class="loader-wrap">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+        <div class="loader-wrap-heading">
+            <div class="load-text">
+                <span>L</span>
+                <span>o</span>
+                <span>a</span>
+                <span>d</span>
+                <span>i</span>
+                <span>n</span>
+                <span>g</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== End Loading ==================== -->
+
+    <div class="cursor"></div>
+
+    <!-- ==================== Start progress-scroll-button ==================== -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- ==================== End progress-scroll-button ==================== -->
+
+    <!-- ==================== Start Navbar ==================== -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="logo" href="../index.html">
+                <img src="../assets/imgs/logo图标.png" alt="DreamoonTech Logo">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="service-details.html">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="service-digital-marketing.html">Digital Marketing</a></li>
+                            <li><a class="dropdown-item" href="service-website-development.html">Website Development</a></li>
+                            <li><a class="dropdown-item" href="service-shopify-development.html">Shopify Development</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="blogs.html">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="topnav d-flex align-items-center">
+                <a href="contact.html" class="butn butn-rounded">
+                    <div class="d-flex align-items-center">
+                        <span>Get a Quote</span>
+                        <span class="icon ml-10">
+                            <img src="../common/imgs/icons/arrow-top-right.svg" alt="">
+                        </span>
+                    </div>
+                </a>
+                <div class="menu-icon cursor-pointer">
+                    <span class="icon ti-align-right"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hamenu">
+        <div class="close-menu cursor-pointer ti-close"></div>
+        <div class="container-fluid rest d-flex">
+            <div class="menu-links">
+                <ul class="main-menu rest">
+                    <li>
+                        <div class="o-hidden">
+                            <a href="../index.html" class="link"><span class="fill-text" data-text="Home">Home</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="about.html" class="link"><span class="fill-text" data-text="About Us">About Us</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <div class="link cursor-pointer dmenu"><span class="fill-text" data-text="Services">Services</span><i></i></div>
+                        </div>
+                        <div class="sub-menu">
+                            <ul>
+                                <li><a href="service-digital-marketing.html" class="sub-link">Digital Marketing</a></li>
+                                <li><a href="service-website-development.html" class="sub-link">Website Development</a></li>
+                                <li><a href="service-shopify-development.html" class="sub-link">Shopify Development</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="portfolio.html" class="link"><span class="fill-text" data-text="Portfolios">Portfolios</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="blogs.html" class="link"><span class="fill-text" data-text="Blogs">Blogs</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="contact.html" class="link"><span class="fill-text" data-text="Contact">Contact</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="cont-info valign">
+                <div class="text-center full-width">
+                    <div class="logo">
+                        <img src="../assets/imgs/logo图标.png" alt="DreamoonTech">
+                    </div>
+                    <div class="social-icon mt-40">
+                        <a href="https://www.facebook.com/people/DreamoonTech/61570271684820/" target="_blank"> <i class="fab fa-facebook-f"></i> </a>
+                        <a href="https://www.instagram.com/dreamoontech_adelaide" target="_blank"> <i class="fab fa-instagram"></i> </a>
+                        <a href="https://www.linkedin.com/company/dreamoontech" target="_blank"> <i class="fab fa-linkedin-in"></i> </a>
+                        <a href="https://www.youtube.com/@dreamoontech" target="_blank"> <i class="fab fa-youtube"></i> </a>
+                    </div>
+                    <div class="item mt-30">
+                        <h5>2/3 Greenhill Road, <br> Wayville Adelaide SA 5034</h5>
+                    </div>
+                    <div class="item mt-10">
+                        <h5><a href="mailto:contact@dreamoontech.com">contact@dreamoontech.com</a></h5>
+                        <h5 class="underline"><a href="tel:0493493597">0493 493 597</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== End Navbar ==================== -->
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <main>
+
+                <!-- ==================== Start Blog Header ==================== -->
+                <section class="blog-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <h6 class="sub-head mb-20">DreamoonTech Insights</h6>
+                                <h1>Driving Digital Success</h1>
+                                <p class="mt-20" style="color: #8e8e8e; font-size: 18px; line-height: 1.7;">
+                                    Powered by expert developers, agile marketing minds, and seamless collaboration to deliver impactful solutions. Explore our latest insights on digital marketing, web design, and business growth strategies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Blog Header ==================== -->
+
+                <!-- ==================== Start Stats Section ==================== -->
+                <section class="blog-stats">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="stat-item">
+                                    <div class="stat-number">40<span>+</span></div>
+                                    <div class="stat-label">Projects Delivered</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="stat-item">
+                                    <div class="stat-number">5<span>+</span></div>
+                                    <div class="stat-label">Years of Experience</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                                <div class="stat-item">
+                                    <div class="stat-number">100<span>%</span></div>
+                                    <div class="stat-label">Local Adelaide Team</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Stats Section ==================== -->
+
+                <!-- ==================== Start Blog Posts ==================== -->
+                <section class="all-posts-section">
+                    <div class="container">
+                        <div class="section-title-blogs">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <h6 class="sub-head">All Articles</h6>
+                                </div>
+                                <div class="col-lg-7">
+                                    <h2>Browse our complete collection of insights and strategies</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">01</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-marketing-tools-2024.html">What are the most popular marketing tools in 2024?</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                June 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Marketing
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">02</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-facebook-marketing.html">The 8 Evolutionary Paths of Facebook Marketing</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Social Media
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">03</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-startup-growth.html">Growing Customers for a Startup Website: Key Focus Areas</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Startup
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">04</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-healthcare-agencies-grow-customer.html">How Healthcare Agencies in Australia Can Leverage the Internet to Grow Their Customer Base</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Healthcare
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">05</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-website-design-strategies-grow-customer.html">Website Design Strategies to Grow Your Customer Base in the Australian Market</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Web Design
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">06</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-mobile-onboarding-visual-analytics.html">Refining Your Mobile Onboarding Experience Using Visual Analytics</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                June 2024
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                UX Design
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">07</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-css-border-image-property.html">The Complex but Awesome CSS Border-Image Property for Web Design</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                June 2024
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Web Design
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">08</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-retrieval-auto-generated-read-content-models.html">A Simple Guide to Retrieval Auto Generated Read Content Models</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                June 2024
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Technology
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">09</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-business-growth-strategies.html">Business Growth Strategies</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 26, 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Business
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">10</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-entrepreneurial-journeys.html">Entrepreneurial Journeys</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 26, 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Entrepreneurship
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">11</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-business-resilience-tips.html">Business Resilience Tips</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 26, 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Business
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">12</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-building-quality-sustainable.html">Building Quality Sustainable</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 26, 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Sustainability
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">13</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-market-research-strategy.html">Market Research & Strategy</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 26, 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Marketing
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">14</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-business-consultation.html">Business Consultation</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 26, 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Business
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">15</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-insights-from-industry-leaders.html">Insights from Industry Leaders</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 26, 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Leadership
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="blog-list-item">
+                                    <div class="post-number">16</div>
+                                    <div class="post-info">
+                                        <h4 class="post-title">
+                                            <a href="blog-donate-your-design.html">Donate Your Design for Newest Designer to Try Better</a>
+                                        </h4>
+                                        <div class="post-meta">
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                May 26, 2025
+                                            </span>
+                                            <span>
+                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                                Design
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Blog Posts ==================== -->
+
+                <!-- ==================== End Blog Posts ==================== -->
+
+                <!-- ==================== Start CTA Section ==================== -->
+                <section class="blogs-cta">
+                    <div class="container">
+                        <h2>Let's Start Your Experience with DreamoonTech</h2>
+                        <p>Get in touch with our team to discuss how we can help your business grow online</p>
+                        <a href="contact.html" class="btn-cta">
+                            Let's Get in Touch
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- ==================== End CTA Section ==================== -->
+
+            </main>
+
+            <!-- ==================== Start Footer ==================== -->
+            <footer class="footer-sa bord-thin-top-light pb-80">
+                <div class="container section-padding">
+                    <div class="sec-head mb-80">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <a href="../index.html" class="logo md-mb50">
+                                    <img src="../assets/imgs/logo图标.png" alt="DreamoonTech">
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4>Adelaide Web Design for Small Business.
+                                    <span class="sub-color inline">Let's grow your business online.</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-5">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span class="sub-color">location</span>
+                                            <p>2/3 Greenhill Road, Wayville Adelaide SA 5034</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-end">
+                                        <div class="item">
+                                            <span class="sub-color">inquiry</span>
+                                            <p><a href="mailto:contact@dreamoontech.com">contact@dreamoontech.com</a></p>
+                                            <p><a href="tel:0493493597">0493 493 597</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 offset-lg-5">
+                                <div class="social-icon">
+                                    <a href="https://www.facebook.com/people/DreamoonTech/61570271684820/" target="_blank">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/dreamoontech_adelaide" target="_blank">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/dreamoontech" target="_blank">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/@dreamoontech" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="copy sub-color md-mb30">
+                                    <p>© 2024 DreamoonTech. All Rights Reserved</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 d-flex justify-content-end">
+                                <div class="links sub-color d-flex justify-content-between">
+                                    <a href="../index.html">Home</a>
+                                    <a href="portfolio.html">Portfolios</a>
+                                    <a href="about.html">About</a>
+                                    <a href="blogs.html" class="active">Blogs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- ==================== End Footer ==================== -->
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../common/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="../common/js/lib/jquery-migrate-3.4.0.min.js"></script>
+
+    <!-- plugins -->
+    <script src="../common/js/lib/plugins.js"></script>
+
+    <!-- GSAP -->
+    <script src="../common/js/gsap_lib/gsap.min.js"></script>
+    <script src="../common/js/gsap_lib/ScrollSmoother.min.js"></script>
+    <script src="../common/js/gsap_lib/ScrollTrigger.min.js"></script>
+    <script src="../common/js/gsap_lib/SplitText.min.js"></script>
+
+    <!-- common scripts -->
+    <script src="../common/js/common_scripts.js"></script>
+
+    <!-- custom scripts -->
+    <script src="../assets/js/scripts.js"></script>
+
+</body>
+
+</html>

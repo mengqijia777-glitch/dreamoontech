@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Adelaide web design portfolio, website development examples, WordPress websites Adelaide, eCommerce projects, small business websites">
+    <meta name="description" content="View DreamoonTech's portfolio of WordPress websites, redesigns, and eCommerce projects built for Adelaide small businesses.">
+    <meta name="author" content="DreamoonTech">
+
+    <!-- Title -->
+    <title>Web Design Portfolio | DreamoonTech</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/imgs/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="../common/css/plugins.css">
+
+    <!-- Core Style -->
+    <link rel="stylesheet" href="../common/css/common_style.css">
+    <link rel="stylesheet" href="assets/css/inner_pages.css">
+
+    <!-- Page Style -->
+    <style>
+        /* ========== Header ========== */
+        .portfolio-header {
+            background-color: var(--theme-color);
+            padding: 180px 0 80px;
+        }
+
+        .portfolio-header .caption {
+            text-align: center;
+        }
+
+        .portfolio-header .caption h1 {
+            font-size: 72px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-header .caption .path {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 14px;
+            color: #a4a4a4;
+        }
+
+        .portfolio-header .caption .path a {
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .portfolio-header .caption .path a:hover {
+            color: var(--main-color);
+        }
+
+        .portfolio-header .caption .path .current {
+            color: var(--main-color);
+        }
+
+        /* ========== Intro ========== */
+        .portfolio-intro {
+            background-color: var(--theme-color);
+            padding-bottom: 60px;
+        }
+
+        .portfolio-intro p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #a4a4a4;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* ========== Portfolio Grid ========== */
+        .portfolio-grid {
+            background-color: var(--theme-color);
+            padding: 0 0 120px;
+        }
+
+        .portfolio-grid .row {
+            margin: 0 -15px;
+        }
+
+        .portfolio-grid .row > div {
+            padding: 0 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Card */
+        .project-card {
+            display: block;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .project-card .thumbnail {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .project-card .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .thumbnail img {
+            transform: scale(1.05);
+        }
+
+        /* Overlay */
+        .project-card .thumbnail::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            pointer-events: none;
+        }
+
+        /* Category Tag */
+        .project-card .tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .tag {
+            background: var(--main-color);
+            color: var(--theme-color);
+        }
+
+        /* Card Info */
+        .project-card .card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .project-card .card-info h4 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .project-card:hover .card-info h4 {
+            color: var(--main-color);
+        }
+
+        .project-card .card-info .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-15px);
+        }
+
+        .project-card:hover .card-info .icon {
+            opacity: 1;
+            transform: translateX(0);
+            background: var(--main-color);
+            border-color: var(--main-color);
+            color: var(--theme-color);
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 991px) {
+            .portfolio-header .caption h1 {
+                font-size: 48px;
+            }
+
+            .project-card .thumbnail {
+                height: 320px;
+            }
+
+            .project-card .card-info h4 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-header {
+                padding: 140px 0 60px;
+            }
+
+            .portfolio-header .caption h1 {
+                font-size: 36px;
+                letter-spacing: -1px;
+            }
+
+            .portfolio-intro p {
+                font-size: 16px;
+            }
+
+            .portfolio-grid {
+                padding-bottom: 80px;
+            }
+
+            .project-card .thumbnail {
+                height: 260px;
+            }
+
+            .project-card .card-info {
+                padding: 20px;
+            }
+
+            .project-card .card-info h4 {
+                font-size: 18px;
+            }
+
+            .project-card .tag {
+                font-size: 10px;
+                padding: 6px 14px;
+            }
+
+            .project-card .card-info .icon {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+        }
+
+        /* ========== Testimonials Section ========== */
+        .testimonials-section {
+            background-color: var(--bg-color);
+        }
+
+        .testimonials-section .sec-head h3 {
+            font-size: 42px;
+            font-weight: 600;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--main-color);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card .quote-icon {
+            font-size: 32px;
+            color: var(--main-color);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card .testimonial-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #a4a4a4;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-card .client-info h5 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-card .client-info span {
+            font-size: 14px;
+            color: var(--main-color);
+        }
+
+        /* ========== CTA Section ========== */
+        .cta-section {
+            background-color: var(--theme-color);
+            padding: 100px 0;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(208, 255, 113, 0.1) 0%, rgba(208, 255, 113, 0.05) 100%);
+            border: 1px solid rgba(208, 255, 113, 0.2);
+            border-radius: 30px;
+            padding: 80px 40px;
+        }
+
+        .cta-box h2 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            background: var(--main-color);
+            color: var(--theme-color);
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(208, 255, 113, 0.3);
+        }
+
+        .cta-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .cta-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* ========== FAQ Section ========== */
+        .faq-section {
+            background-color: var(--theme-color);
+        }
+
+        .faq-section .sec-head h3 {
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        .faq-section .accordion-item {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 0;
+        }
+
+        .faq-section .accordion-button {
+            background: transparent;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 25px 0;
+            box-shadow: none;
+        }
+
+        .faq-section .accordion-button:not(.collapsed) {
+            color: var(--main-color);
+        }
+
+        .faq-section .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            transition: transform 0.3s ease;
+        }
+
+        .faq-section .accordion-button:not(.collapsed)::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23d0ff71'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+
+        .faq-section .accordion-body {
+            padding: 0 0 25px 0;
+        }
+
+        .faq-section .accordion-body p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #a4a4a4;
+        }
+
+        /* ========== Additional Responsive ========== */
+        @media (max-width: 991px) {
+            .testimonials-section .sec-head h3 {
+                font-size: 32px;
+            }
+
+            .cta-box h2 {
+                font-size: 36px;
+            }
+
+            .faq-section .sec-head h3 {
+                font-size: 36px;
+            }
+
+            .faq-section .accordion-button {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                padding: 30px;
+            }
+
+            .testimonials-section .sec-head h3 {
+                font-size: 28px;
+            }
+
+            .cta-section {
+                padding: 60px 0;
+            }
+
+            .cta-box {
+                padding: 50px 25px;
+                border-radius: 20px;
+            }
+
+            .cta-box h2 {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .cta-btn {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+
+            .faq-section .sec-head h3 {
+                font-size: 28px;
+            }
+
+            .faq-section .accordion-button {
+                font-size: 16px;
+                padding: 20px 0;
+            }
+
+            .faq-section .accordion-body p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== Loading ==================== -->
+    <div class="loader-wrap">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+        <div class="loader-wrap-heading">
+            <div class="load-text">
+                <span>L</span>
+                <span>o</span>
+                <span>a</span>
+                <span>d</span>
+                <span>i</span>
+                <span>n</span>
+                <span>g</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cursor"></div>
+
+    <!-- ==================== Progress Button ==================== -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- ==================== Navbar ==================== -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="logo" href="../index.html">
+                <img src="assets/imgs/logo图标.png" alt="logo">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="service-digital-marketing.html">Digital Marketing</a></li>
+                            <li><a class="dropdown-item" href="service-website-development.html">Website Development</a></li>
+                            <li><a class="dropdown-item" href="service-shopify-development.html">Shopify Development</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="portfolio.html">Portfolios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blogs.html">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="topnav d-flex align-items-center">
+                <a href="contact.html" class="butn butn-rounded">
+                    <div class="d-flex align-items-center">
+                        <span>Get a Quote</span>
+                        <span class="icon ml-10">
+                            <img src="../common/imgs/icons/arrow-top-right.svg" alt="">
+                        </span>
+                    </div>
+                </a>
+                <div class="menu-icon cursor-pointer">
+                    <span class="icon ti-align-right"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== Hamburger Menu ==================== -->
+    <div class="hamenu">
+        <div class="close-menu cursor-pointer ti-close"></div>
+        <div class="container-fluid rest d-flex">
+            <div class="menu-links">
+                <ul class="main-menu rest">
+                    <li>
+                        <div class="o-hidden">
+                            <a href="../index.html" class="link"><span class="fill-text" data-text="Home">Home</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="about.html" class="link"><span class="fill-text" data-text="About Us">About Us</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <div class="link cursor-pointer dmenu"><span class="fill-text" data-text="Services">Services</span>
+                                <i></i>
+                            </div>
+                        </div>
+                        <div class="sub-menu">
+                            <ul>
+                                <li><a href="service-digital-marketing.html" class="sub-link">Digital Marketing</a></li>
+                                <li><a href="service-website-development.html" class="sub-link">Website Development</a></li>
+                                <li><a href="service-shopify-development.html" class="sub-link">Shopify Development</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="portfolio.html" class="link"><span class="fill-text" data-text="Portfolios">Portfolios</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="blogs.html" class="link"><span class="fill-text" data-text="Blogs">Blogs</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="contact.html" class="link"><span class="fill-text" data-text="Contact">Contact</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="cont-info valign">
+                <div class="text-center full-width">
+                    <div class="logo">
+                        <img src="../common/imgs/logo图标.png" alt="DreamoonTech">
+                    </div>
+                    <div class="social-icon mt-40">
+                        <a href="https://www.facebook.com/people/DreamoonTech/61570271684820/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dreamoontech_adelaide" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/dreamoontech" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@dreamoontech" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="item mt-30">
+                        <h5>2/3 Greenhill Road, <br> Wayville Adelaide SA 5034</h5>
+                    </div>
+                    <div class="item mt-10">
+                        <h5><a href="mailto:contact@dreamoontech.com">contact@dreamoontech.com</a></h5>
+                        <h5 class="underline"><a href="tel:0493493597">0493 493 597</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== Main Content ==================== -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <main>
+
+                <!-- Header -->
+                <header class="portfolio-header">
+                    <div class="container">
+                        <div class="caption">
+                            <h1>Our Work</h1>
+                            <div class="path">
+                                <a href="../index.html">Home</a>
+                                <span><i class="fa-solid fa-chevron-right"></i></span>
+                                <span class="current">Portfolios</span>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Intro -->
+                <section class="portfolio-intro">
+                    <div class="container">
+                        <p>Explore a selection of website, SEO, and digital marketing projects we've delivered for businesses in Adelaide and beyond.</p>
+                    </div>
+                </section>
+
+                <!-- Portfolio Grid -->
+                <section class="portfolio-grid">
+                    <div class="container">
+                        <div class="row">
+
+                            <!-- Meebella Estate -->
+                            <div class="col-lg-6">
+                                <a href="project-meebella-estate.html" class="project-card">
+                                    <div class="thumbnail">
+                                        <img src="../assets/imgs/works/Meebella Estate.jpg" alt="Meebella Estate">
+                                        <span class="tag">Wine / Hospitality</span>
+                                    </div>
+                                    <div class="card-info">
+                                        <h4>Meebella Estate</h4>
+                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Lee's Plumbing -->
+                            <div class="col-lg-6">
+                                <a href="project-lees-plumbing.html" class="project-card">
+                                    <div class="thumbnail">
+                                        <img src="../assets/imgs/works/lee's plumbing and gas service.jpg" alt="Lee's Plumbing">
+                                        <span class="tag">Trade Services</span>
+                                    </div>
+                                    <div class="card-info">
+                                        <h4>Lee's Plumbing and Gas Services</h4>
+                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Adelaide Cleaning -->
+                            <div class="col-lg-6">
+                                <a href="project-adelaide-cleaning.html" class="project-card">
+                                    <div class="thumbnail">
+                                        <img src="../assets/imgs/works/adelaide cleaning solution.jpg" alt="Adelaide Cleaning Solution">
+                                        <span class="tag">Cleaning Services</span>
+                                    </div>
+                                    <div class="card-info">
+                                        <h4>Adelaide Cleaning Solution</h4>
+                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Prime Gardening -->
+                            <div class="col-lg-6">
+                                <a href="project-primegardening.html" class="project-card">
+                                    <div class="thumbnail">
+                                        <img src="../assets/imgs/works/Primegardening.jpg" alt="Prime Gardening">
+                                        <span class="tag">Landscaping</span>
+                                    </div>
+                                    <div class="card-info">
+                                        <h4>Prime Gardening</h4>
+                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- DatumCo -->
+                            <div class="col-lg-6">
+                                <a href="project-datumco.html" class="project-card">
+                                    <div class="thumbnail">
+                                        <img src="../assets/imgs/works/DatumCo.jpg" alt="DatumCo">
+                                        <span class="tag">Corporate</span>
+                                    </div>
+                                    <div class="card-info">
+                                        <h4>DatumCo</h4>
+                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Timely Health -->
+                            <div class="col-lg-6">
+                                <a href="project-timely-health.html" class="project-card">
+                                    <div class="thumbnail">
+                                        <img src="../assets/imgs/works/Timely health assist.jpg" alt="Timely Health Assist">
+                                        <span class="tag">Healthcare</span>
+                                    </div>
+                                    <div class="card-info">
+                                        <h4>Timely Health Assist</h4>
+                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- ONE 9&9 -->
+                            <div class="col-lg-6">
+                                <a href="project-one-99.html" class="project-card">
+                                    <div class="thumbnail">
+                                        <img src="../assets/imgs/works/One 9&9.jpg" alt="One 9&9">
+                                        <span class="tag">Business</span>
+                                    </div>
+                                    <div class="card-info">
+                                        <h4>ONE 9&9</h4>
+                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Jiangsu Chamber -->
+                            <div class="col-lg-6">
+                                <a href="project-jiangsu-chamber.html" class="project-card">
+                                    <div class="thumbnail">
+                                        <img src="../assets/imgs/works/Jiangsu Camber of commerce of South Australia.jpg" alt="Jiangsu Chamber of Commerce">
+                                        <span class="tag">Community</span>
+                                    </div>
+                                    <div class="card-info">
+                                        <h4>Jiangsu Chamber of Commerce SA</h4>
+                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== Testimonials Section ==================== -->
+                <section class="testimonials-section section-padding">
+                    <div class="container">
+                        <div class="sec-head text-center mb-80">
+                            <h3>What Our Happy Clients Say About Us</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 mb-30">
+                                <div class="testimonial-card">
+                                    <div class="quote-icon">
+                                        <i class="fa-solid fa-quote-left"></i>
+                                    </div>
+                                    <p class="testimonial-text">Working with DreamoonTech has been a very positive experience. They delivered a clean, mobile-optimised website with clear bilingual content in English and Chinese. The team was responsive, professional, and easy to work with throughout the project.</p>
+                                    <div class="client-info">
+                                        <h5>ONE 9&9</h5>
+                                        <span>Business Client</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-30">
+                                <div class="testimonial-card">
+                                    <div class="quote-icon">
+                                        <i class="fa-solid fa-quote-left"></i>
+                                    </div>
+                                    <p class="testimonial-text">DreamoonTech delivered a clean, mobile-friendly website that better represents our plumbing and gas services. The site is easy to navigate, loads quickly, and has already helped us connect with more local customers in Adelaide.</p>
+                                    <div class="client-info">
+                                        <h5>Lee's Plumbing and Gas Services</h5>
+                                        <span>Trade Services Client</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== FAQ Section ==================== -->
+                <section class="faq-section section-padding">
+                    <div class="container">
+                        <div class="sec-head text-center mb-60">
+                            <h3>FAQ</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                                <div class="accordion" id="faqAccordion">
+                                    <div class="accordion-item">
+                                        <h4 class="accordion-header">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+                                                What industries do you work with?
+                                            </button>
+                                        </h4>
+                                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>We work with a variety of industries including local services, healthcare, hospitality, and trades. Our team has experience creating tailored solutions for businesses of all sizes across Adelaide and beyond.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h4 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false">
+                                                Do you offer SEO with website builds?
+                                            </button>
+                                        </h4>
+                                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>Yes, all our websites are built with an SEO-ready structure. We implement best practices for on-page SEO, including optimized meta tags, fast loading speeds, mobile responsiveness, and clean code architecture.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h4 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false">
+                                                Can you help in Chinese and English?
+                                            </button>
+                                        </h4>
+                                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>Yes, we provide full bilingual support in both Chinese and English. Whether you need a bilingual website or prefer to communicate in your native language, our team is here to help.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h4 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false">
+                                                How long does a typical project take?
+                                            </button>
+                                        </h4>
+                                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>Project timelines typically range from 2 to 6 weeks depending on the scope and complexity. We'll provide a detailed timeline during our initial consultation based on your specific requirements.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h4 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false">
+                                                Do you provide ongoing support?
+                                            </button>
+                                        </h4>
+                                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                <p>Yes, we offer ongoing maintenance and optimization services. This includes regular updates, security monitoring, performance optimization, and content updates to keep your website running smoothly.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- ==================== Start Footer ==================== -->
+
+            <footer class="footer-sa pb-80">
+                <div class="container section-padding">
+                    <div class="call-action text-center mb-80">
+                        <h2 class="">
+                            <a href="contact.html">Let's Grow Your <br> Business Online!</a>
+                            <div class="buton d-flex align-items-center justify-content-center">
+                                <a href="contact.html">
+                                    <span class="mb-10">Get a</span> <br> <span>Quote <img
+                                        src="../common/imgs/icons/arrow-top-right.svg" alt=""></span>
+                                </a>
+                            </div>
+                        </h2>
+                    </div>
+                    <div class="contact-info">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <a href="../index.html" class="logo md-mb50">
+                                    <img src="assets/imgs/logo图标.png" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span class="sub-color">location</span>
+                                            <p>2/3 Greenhill Road, Wayville Adelaide SA 5034</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-end justify-end">
+                                        <div class="item">
+                                            <span class="sub-color">inquiry</span>
+                                            <p><a href="mailto:contact@dreamoontech.com">contact@dreamoontech.com</a></p>
+                                            <p><a href="tel:0493493597">0493 493 597</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 offset-lg-5">
+                                <div class="social-icon">
+                                    <a href="https://www.facebook.com/people/DreamoonTech/61570271684820/" target="_blank">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/dreamoontech_adelaide" target="_blank">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/dreamoontech" target="_blank">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/@dreamoontech" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-footer">
+                    <div class="container bord-thin-top-light pt-50">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="copy sub-color md-mb30">
+                                    <p>© 2024 DreamoonTech. All Right Reserved</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 d-flex justify-content-end">
+                                <div class="links sub-color d-flex justify-content-between">
+                                    <a href="../index.html">Home</a>
+                                    <a href="portfolio.html" class="active">Portfolios</a>
+                                    <a href="about.html">About</a>
+                                    <a href="blogs.html">Blogs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- ==================== End Footer ==================== -->
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../common/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="../common/js/lib/jquery-migrate-3.4.0.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="../common/js/lib/plugins.js"></script>
+
+    <!-- GSAP -->
+    <script src="../common/js/gsap_lib/gsap.min.js"></script>
+    <script src="../common/js/gsap_lib/ScrollSmoother.min.js"></script>
+    <script src="../common/js/gsap_lib/ScrollTrigger.min.js"></script>
+    <script src="../common/js/gsap_lib/SplitText.min.js"></script>
+
+    <!-- Common Scripts -->
+    <script src="../common/js/common_scripts.js"></script>
+
+</body>
+
+</html>

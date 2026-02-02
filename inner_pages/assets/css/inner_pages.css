@@ -2188,3 +2188,321 @@ p {
     font-size: 28px !important; }
   .intro-cst .states .item h2 {
     font-size: 36px !important; } }
+
+/* ==================== Portfolio Intro Section ==================== */
+.portfolio-intro {
+    background-color: var(--theme-color);
+}
+
+.portfolio-intro .portfolio-desc {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #a4a4a4;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .portfolio-intro .portfolio-desc {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+}
+
+/* ==================== 作品集卡片 - 深色主题设计 ==================== */
+.work-card {
+    background-color: var(--theme-color);
+    padding: 40px 0 80px;
+}
+
+.work-card .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    width: 100%;
+}
+
+.work-card .cards .card-item {
+    position: relative;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.work-card .cards .card-item:hover {
+    transform: translateY(-5px);
+}
+
+.work-card .cards .card-item a {
+    display: block;
+    text-decoration: none;
+}
+
+.work-card .cards .card-item .img {
+    position: relative;
+    width: 100%;
+    padding-bottom: 32%; /* 超扁平宽比例 ~3:1 */
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: #2a2a2a;
+}
+
+.work-card .cards .card-item .img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.work-card .cards .card-item:hover .img img {
+    transform: scale(1.08);
+    opacity: 0.95;
+}
+
+/* 移除标签显示 */
+.work-card .cards .card-item .img .tags {
+    display: none;
+}
+
+/* 项目标题 */
+.work-card .cards .card-item .project-title {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.work-card .cards .card-item:hover .project-title {
+    color: var(--main-color);
+}
+
+/* Read More 链接 */
+.work-card .cards .card-item .read-more {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--main-color);
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.work-card .cards .card-item:hover .read-more {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+/* 平板端 */
+@media (max-width: 991px) {
+    .work-card .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .work-card .cards .card-item .img {
+        padding-bottom: 38%;
+    }
+
+    .work-card .cards .card-item .project-title {
+        font-size: 16px;
+    }
+}
+
+/* 移动端 */
+@media (max-width: 768px) {
+    .work-card {
+        padding: 30px 0 50px;
+    }
+
+    .work-card .cards {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .work-card .cards .card-item .img {
+        padding-bottom: 45%;
+    }
+
+    .work-card .cards .card-item .project-title {
+        font-size: 16px;
+    }
+
+    .work-card .cards .card-item .read-more {
+        font-size: 13px;
+    }
+}
+
+/* ==================== Portfolio Masonry Section ==================== */
+.portfolio-masonry {
+    background-color: var(--theme-color);
+    padding-bottom: 100px;
+}
+
+.portfolio-masonry .gallery {
+    margin: 0 -15px;
+}
+
+.portfolio-masonry .item {
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.portfolio-masonry .item .item-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.portfolio-masonry .item .img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.portfolio-masonry .col-lg-7 .img {
+    height: 450px;
+}
+
+.portfolio-masonry .col-lg-5 .img {
+    height: 380px;
+}
+
+.portfolio-masonry .item .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.portfolio-masonry .item:hover .img img {
+    transform: scale(1.08);
+}
+
+.portfolio-masonry .item .img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    pointer-events: none;
+}
+
+.portfolio-masonry .item .category-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.portfolio-masonry .item:hover .category-tag {
+    background: var(--main-color);
+    color: #0e0f11;
+}
+
+.portfolio-masonry .item .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portfolio-masonry .item .info h5 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.portfolio-masonry .item:hover .info h5 {
+    color: var(--main-color);
+}
+
+.portfolio-masonry .item .info .arrow {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.portfolio-masonry .item:hover .info .arrow {
+    opacity: 1;
+    transform: translateX(0);
+    background: var(--main-color);
+    border-color: var(--main-color);
+    color: #0e0f11;
+}
+
+@media (max-width: 991px) {
+    .portfolio-masonry .col-lg-7 .img,
+    .portfolio-masonry .col-lg-5 .img {
+        height: 350px;
+    }
+
+    .portfolio-masonry .item .info h5 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-masonry {
+        padding-bottom: 60px;
+    }
+
+    .portfolio-masonry .item {
+        margin-bottom: 20px;
+    }
+
+    .portfolio-masonry .col-lg-7 .img,
+    .portfolio-masonry .col-lg-5 .img {
+        height: 280px;
+    }
+
+    .portfolio-masonry .item .info {
+        padding: 20px;
+    }
+
+    .portfolio-masonry .item .info h5 {
+        font-size: 16px;
+    }
+
+    .portfolio-masonry .item .category-tag {
+        font-size: 10px;
+        padding: 6px 12px;
+    }
+}

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Adelaide web design, website design strategies, customer growth, digital design, UX design">
+    <meta name="description" content="Website Design Strategies to Grow Your Customer Base - Essential design strategies for Australian businesses.">
+    <meta name="author" content="DreamoonTech">
+
+    <!-- Title  -->
+    <title>Website Design Strategies to Grow Your Customer Base | DreamoonTech</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/imgs/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="../common/css/plugins.css">
+
+    <!-- Core Style Css -->
+    <link rel="stylesheet" href="../common/css/common_style.css">
+    <link rel="stylesheet" href="assets/css/inner_pages.css">
+
+    <style>
+        /* Blog Detail Page Styles */
+        :root {
+            --bg-color: #18191b;
+            --theme-color: #0e0f11;
+            --main-color: #d0ff71;
+        }
+
+        .blog-detail-header {
+            padding: 180px 0 100px;
+            background: var(--theme-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-detail-header .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #8e8e8e;
+            font-size: 14px;
+            margin-bottom: 30px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .blog-detail-header .back-link:hover {
+            color: var(--main-color);
+        }
+
+        .blog-detail-header .back-link svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            transform: rotate(180deg);
+        }
+
+        .blog-detail-header h1 {
+            font-size: 56px;
+            font-weight: 500;
+            line-height: 1.2;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .blog-detail-header .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .blog-detail-header .blog-meta-item {
+            display: flex;
+            align-items: center;
+            color: #8e8e8e;
+            font-size: 14px;
+        }
+
+        .blog-detail-header .blog-meta-item svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+
+        .blog-content {
+            background: var(--theme-color);
+            padding: 100px 0;
+        }
+
+        .blog-content article h2 {
+            font-size: 36px;
+            font-weight: 500;
+            color: #fff;
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+
+        .blog-content article h3 {
+            font-size: 28px;
+            font-weight: 500;
+            color: #fff;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .blog-content article p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #a4a4a4;
+            margin-bottom: 20px;
+        }
+
+        .blog-content article ul {
+            margin: 20px 0 30px 30px;
+        }
+
+        .blog-content article ul li {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #a4a4a4;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .blog-content article ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            background: var(--main-color);
+            border-radius: 50%;
+        }
+
+        .blog-content article strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .blog-content article .highlight-box {
+            background: rgba(208, 255, 113, 0.05);
+            border-left: 4px solid var(--main-color);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .blog-content article .highlight-box p {
+            color: #fff;
+            margin-bottom: 0;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .blog-content article .featured-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .blog-content article .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-share {
+            background: var(--theme-color);
+            padding: 0 0 100px;
+        }
+
+        .blog-share .share-title {
+            font-size: 14px;
+            color: #8e8e8e;
+            margin-bottom: 15px;
+        }
+
+        .blog-share .share-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .blog-share .share-icons a {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .blog-share .share-icons a:hover {
+            background: var(--main-color);
+            border-color: var(--main-color);
+            color: #0e0f11;
+        }
+
+        @media screen and (max-width: 992px) {
+            .blog-detail-header {
+                padding: 140px 0 80px;
+            }
+
+            .blog-detail-header h1 {
+                font-size: 42px;
+            }
+
+            .blog-content {
+                padding: 60px 0;
+            }
+
+            .blog-content article h2 {
+                font-size: 28px;
+            }
+
+            .blog-content article h3 {
+                font-size: 22px;
+            }
+
+            .blog-content article p {
+                font-size: 16px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .blog-detail-header {
+                padding: 120px 0 60px;
+            }
+
+            .blog-detail-header h1 {
+                font-size: 36px;
+            }
+
+            .blog-content article p {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ==================== Start Loading ==================== -->
+    <div class="loader-wrap">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+        <div class="loader-wrap-heading">
+            <div class="load-text">
+                <span>L</span>
+                <span>o</span>
+                <span>a</span>
+                <span>d</span>
+                <span>i</span>
+                <span>n</span>
+                <span>g</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== End Loading ==================== -->
+
+    <div class="cursor"></div>
+
+    <!-- ==================== Start progress-scroll-button ==================== -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- ==================== End progress-scroll-button ==================== -->
+
+    <!-- ==================== Start Navbar ==================== -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="logo" href="../index.html">
+                <img src="../assets/imgs/logo图标.png" alt="DreamoonTech Logo">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="service-details.html">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="service-digital-marketing.html">Digital Marketing</a></li>
+                            <li><a class="dropdown-item" href="service-website-development.html">Website Development</a></li>
+                            <li><a class="dropdown-item" href="service-shopify-development.html">Shopify Development</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="blogs.html">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="topnav d-flex align-items-center">
+                <a href="contact.html" class="butn butn-rounded">
+                    <div class="d-flex align-items-center">
+                        <span>Get a Quote</span>
+                        <span class="icon ml-10">
+                            <img src="../common/imgs/icons/arrow-top-right.svg" alt="">
+                        </span>
+                    </div>
+                </a>
+                <div class="menu-icon cursor-pointer">
+                    <span class="icon ti-align-right"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hamenu">
+        <div class="close-menu cursor-pointer ti-close"></div>
+        <div class="container-fluid rest d-flex">
+            <div class="menu-links">
+                <ul class="main-menu rest">
+                    <li>
+                        <div class="o-hidden">
+                            <a href="../index.html" class="link"><span class="fill-text" data-text="Home">Home</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="about.html" class="link"><span class="fill-text" data-text="About Us">About Us</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <div class="link cursor-pointer dmenu"><span class="fill-text" data-text="Services">Services</span><i></i></div>
+                        </div>
+                        <div class="sub-menu">
+                            <ul>
+                                <li><a href="service-digital-marketing.html" class="sub-link">Digital Marketing</a></li>
+                                <li><a href="service-website-development.html" class="sub-link">Website Development</a></li>
+                                <li><a href="service-shopify-development.html" class="sub-link">Shopify Development</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="portfolio.html" class="link"><span class="fill-text" data-text="Portfolios">Portfolios</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="blogs.html" class="link"><span class="fill-text" data-text="Blogs">Blogs</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="contact.html" class="link"><span class="fill-text" data-text="Contact">Contact</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="cont-info valign">
+                <div class="text-center full-width">
+                    <div class="logo">
+                        <img src="../assets/imgs/logo图标.png" alt="DreamoonTech">
+                    </div>
+                    <div class="social-icon mt-40">
+                        <a href="https://www.facebook.com/people/DreamoonTech/61570271684820/" target="_blank"> <i class="fab fa-facebook-f"></i> </a>
+                        <a href="https://www.instagram.com/dreamoontech_adelaide" target="_blank"> <i class="fab fa-instagram"></i> </a>
+                        <a href="https://www.linkedin.com/company/dreamoontech" target="_blank"> <i class="fab fa-linkedin-in"></i> </a>
+                        <a href="https://www.youtube.com/@dreamoontech" target="_blank"> <i class="fab fa-youtube"></i> </a>
+                    </div>
+                    <div class="item mt-30">
+                        <h5>2/3 Greenhill Road, <br> Wayville Adelaide SA 5034</h5>
+                    </div>
+                    <div class="item mt-10">
+                        <h5><a href="mailto:contact@dreamoontech.com">contact@dreamoontech.com</a></h5>
+                        <h5 class="underline"><a href="tel:0493493597">0493 493 597</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== End Navbar ==================== -->
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <main>
+
+                <!-- ==================== Start Blog Header ==================== -->
+                <section class="blog-detail-header">
+                    <div class="container">
+                        <a href="blogs.html" class="back-link">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            Back to Blogs
+                        </a>
+                        <h1>Website Design Strategies to Grow Your Customer Base</h1>
+                        <div class="blog-meta">
+                            <div class="blog-meta-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                May 2025
+                            </div>
+                            <div class="blog-meta-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                Web Design
+                            </div>
+                            <div class="blog-meta-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                12 min read
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Blog Header ==================== -->
+
+                <!-- ==================== Start Blog Content ==================== -->
+                <section class="blog-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <article>
+                                    <p>In today's digital-first world, a website serves as the cornerstone of a business's online presence. Especially in a competitive market like Australia, where consumer behavior is increasingly shaped by digital interactions, a well-designed website is key to growing your customer base.</p>
+
+                                    <div class="featured-image">
+                                        <img src="assets/imgs/website-design-strategies-grow-customer.jpg" alt="Website Design Strategies">
+                                    </div>
+
+                                    <h2>1. Mobile-Responsive Design: Meeting the On-the-Go Consumer</h2>
+                                    <p>One of the most critical aspects of modern website design is mobile responsiveness. With over 90% of Australians using smartphones for internet access, businesses cannot afford to overlook mobile optimization.</p>
+                                    <ul>
+                                        <li><strong>Scalable Images and Fonts:</strong> Ensures readability and visual appeal on smaller screens.</li>
+                                        <li><strong>Touch-Friendly Interfaces:</strong> Buttons and links should be large enough for easy tapping.</li>
+                                        <li><strong>Fast Loading Times:</strong> Mobile users expect instant access; delays can lead to high bounce rates.</li>
+                                    </ul>
+
+                                    <h2>2. User-Centered Design: Putting the Customer First</h2>
+                                    <p>User-centered design (UCD) focuses on creating intuitive, enjoyable experiences for website visitors. By understanding customer behavior and preferences, businesses can design websites that resonate with their target audience.</p>
+                                    <ul>
+                                        <li><strong>Simplicity:</strong> Avoid cluttered layouts and complex navigation. Australians value straightforward, user-friendly interfaces.</li>
+                                        <li><strong>Personalization:</strong> Use customer data to tailor recommendations, such as showing relevant products based on browsing history.</li>
+                                        <li><strong>Accessibility:</strong> Ensure your website adheres to WCAG (Web Content Accessibility Guidelines) to accommodate users with disabilities.</li>
+                                    </ul>
+
+                                    <h2>3. Localized Content and Design</h2>
+                                    <p>Australians appreciate businesses that reflect local culture and values. Incorporating localized content into your website can foster trust and build a stronger connection with your audience.</p>
+                                    <ul>
+                                        <li><strong>Use Australian English:</strong> Align your spelling, grammar, and idioms with local standards.</li>
+                                        <li><strong>Highlight Sustainability:</strong> Australians are eco-conscious, so showcasing sustainable practices can resonate with the audience.</li>
+                                        <li><strong>Showcase Local Testimonials:</strong> Featuring reviews or case studies from Australian customers enhances credibility.</li>
+                                    </ul>
+
+                                    <h2>4. Optimized SEO and Local Search Features</h2>
+                                    <p>A beautifully designed website is meaningless if it doesn't attract traffic. Search engine optimization (SEO) ensures that your site ranks higher on Google, which accounts for over 94% of search engine traffic in Australia.</p>
+                                    <ul>
+                                        <li><strong>Keyword Research:</strong> Use tools like Google Keyword Planner to identify phrases Australians are searching for in your industry.</li>
+                                        <li><strong>Local Listings:</strong> Optimize your Google My Business profile for better visibility in local searches.</li>
+                                        <li><strong>Geo-Specific Content:</strong> Create blog posts or pages targeting local events, attractions, or community interests.</li>
+                                    </ul>
+
+                                    <h2>5. Fast Loading Speeds: No Time to Waste</h2>
+                                    <p>In a market where attention spans are shrinking, a slow-loading website can drive customers away. Studies show that 53% of mobile users abandon websites that take longer than three seconds to load.</p>
+                                    <ul>
+                                        <li><strong>Optimize Images:</strong> Use compression tools to reduce file sizes without compromising quality.</li>
+                                        <li><strong>Enable Browser Caching:</strong> Speeds up loading for returning visitors.</li>
+                                        <li><strong>Utilize a Content Delivery Network (CDN):</strong> Distributes content across multiple servers to reduce latency.</li>
+                                    </ul>
+
+                                    <h2>6. Engaging Visuals and Multimedia</h2>
+                                    <p>First impressions matter, and visually appealing websites can captivate visitors, encouraging them to explore further. Australians, known for their love of creativity and vibrant aesthetics, respond well to clean designs with high-quality visuals.</p>
+                                    <ul>
+                                        <li><strong>Use High-Resolution Images:</strong> Showcase products or services in the best light.</li>
+                                        <li><strong>Incorporate Videos:</strong> Tutorials, testimonials, or promotional videos can boost engagement.</li>
+                                        <li><strong>Follow a Consistent Color Scheme:</strong> Align your colors with your brand identity while maintaining visual harmony.</li>
+                                    </ul>
+
+                                    <h2>7. Strong Call-to-Actions (CTAs)</h2>
+                                    <p>Every website needs clear, compelling CTAs to guide users toward desired actions, such as making a purchase, signing up for a newsletter, or booking a consultation.</p>
+                                    <ul>
+                                        <li><strong>Action-Oriented Text:</strong> Use phrases like "Shop Now" or "Get Your Free Quote."</li>
+                                        <li><strong>Highlight Benefits:</strong> Make it clear what users will gain by clicking.</li>
+                                        <li><strong>Use Contrasting Colors:</strong> Ensure your CTA buttons stand out visually from the rest of the page.</li>
+                                    </ul>
+
+                                    <h2>8. Secure and Trustworthy Design</h2>
+                                    <p>In an era of cyber threats, Australians are increasingly wary of online security. A website that prioritizes security can earn the trust of its visitors, leading to higher customer retention.</p>
+                                    <ul>
+                                        <li><strong>SSL Certificates:</strong> Ensure your website uses HTTPS to protect data transmission.</li>
+                                        <li><strong>Clear Privacy Policies:</strong> Provide transparency about how customer data is collected and used.</li>
+                                        <li><strong>Trust Signals:</strong> Include badges from reputable payment providers and customer reviews.</li>
+                                    </ul>
+
+                                    <h2>9. Data Analytics and Continuous Improvement</h2>
+                                    <p>A successful website is never static. Regularly analyzing user data and feedback allows businesses to refine their design and address potential pain points.</p>
+                                    <ul>
+                                        <li><strong>Bounce Rate:</strong> Indicates how many visitors leave without interacting.</li>
+                                        <li><strong>Session Duration:</strong> Shows how long users stay on your site.</li>
+                                        <li><strong>Conversion Rates:</strong> Tracks how many visitors complete desired actions.</li>
+                                    </ul>
+
+                                    <div class="highlight-box">
+                                        <p><strong>Conclusion:</strong> In the competitive Australian market, a strategically designed website can be a game-changer for businesses looking to grow their customer base. By prioritizing mobile responsiveness, user-centered design, localized content, SEO, fast loading speeds, engaging visuals, strong CTAs, security, and ongoing optimization, businesses can attract and retain customers effectively. Investing in these website design strategies is not just about staying relevant—it's about thriving in an ever-evolving digital landscape.</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Blog Content ==================== -->
+
+                <!-- ==================== Start Blog Share ==================== -->
+                <section class="blog-share">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="share-title">Share this article:</div>
+                                <div class="share-icons">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://dreamoontech.com/2025/05/website-design-strategies-grow-customer/" target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://twitter.com/intent/tweet?url=https://dreamoontech.com/2025/05/website-design-strategies-grow-customer/&text=Website Design Strategies to Grow Your Customer Base" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://dreamoontech.com/2025/05/website-design-strategies-grow-customer/" target="_blank">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Blog Share ==================== -->
+
+            </main>
+
+            <!-- ==================== Start Footer ==================== -->
+            <footer class="footer-sa bord-thin-top-light pb-80">
+                <div class="container section-padding">
+                    <div class="sec-head mb-80">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <a href="../index.html" class="logo md-mb50">
+                                    <img src="../assets/imgs/logo图标.png" alt="DreamoonTech">
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4>Adelaide Web Design for Small Business.
+                                    <span class="sub-color inline">Let's grow your business online.</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-5">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span class="sub-color">location</span>
+                                            <p>2/3 Greenhill Road, Wayville Adelaide SA 5034</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-end">
+                                        <div class="item">
+                                            <span class="sub-color">inquiry</span>
+                                            <p><a href="mailto:contact@dreamoontech.com">contact@dreamoontech.com</a></p>
+                                            <p><a href="tel:0493493597">0493 493 597</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 offset-lg-5">
+                                <div class="social-icon">
+                                    <a href="https://www.facebook.com/people/DreamoonTech/61570271684820/" target="_blank">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/dreamoontech_adelaide" target="_blank">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/dreamoontech" target="_blank">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/@dreamoontech" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="copy sub-color md-mb30">
+                                    <p>© 2024 DreamoonTech. All Rights Reserved</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 d-flex justify-content-end">
+                                <div class="links sub-color d-flex justify-content-between">
+                                    <a href="../index.html">Home</a>
+                                    <a href="portfolio.html">Portfolios</a>
+                                    <a href="about.html">About</a>
+                                    <a href="blogs.html" class="active">Blogs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- ==================== End Footer ==================== -->
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../common/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="../common/js/lib/jquery-migrate-3.4.0.min.js"></script>
+
+    <!-- plugins -->
+    <script src="../common/js/lib/plugins.js"></script>
+
+    <!-- GSAP -->
+    <script src="../common/js/gsap_lib/gsap.min.js"></script>
+    <script src="../common/js/gsap_lib/ScrollSmoother.min.js"></script>
+    <script src="../common/js/gsap_lib/ScrollTrigger.min.js"></script>
+    <script src="../common/js/gsap_lib/SplitText.min.js"></script>
+
+    <!-- common scripts -->
+    <script src="../common/js/common_scripts.js"></script>
+
+    <!-- custom scripts -->
+    <script src="../assets/js/scripts.js"></script>
+
+</body>
+
+</html>

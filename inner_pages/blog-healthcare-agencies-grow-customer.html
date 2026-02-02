@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Adelaide web design, healthcare marketing, healthcare agencies, digital marketing for healthcare, telehealth">
+    <meta name="description" content="How Healthcare Agencies in Australia Can Leverage the Internet to Grow Their Customer Base - Learn proven digital strategies for healthcare agencies.">
+    <meta name="author" content="DreamoonTech">
+
+    <!-- Title  -->
+    <title>How Healthcare Agencies in Australia Can Leverage the Internet to Grow Their Customer Base | DreamoonTech</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/imgs/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="../common/css/plugins.css">
+
+    <!-- Core Style Css -->
+    <link rel="stylesheet" href="../common/css/common_style.css">
+    <link rel="stylesheet" href="assets/css/inner_pages.css">
+
+    <style>
+        /* Blog Detail Page Styles */
+        :root {
+            --bg-color: #18191b;
+            --theme-color: #0e0f11;
+            --main-color: #d0ff71;
+        }
+
+        .blog-detail-header {
+            padding: 180px 0 100px;
+            background: var(--theme-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-detail-header .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #8e8e8e;
+            font-size: 14px;
+            margin-bottom: 30px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .blog-detail-header .back-link:hover {
+            color: var(--main-color);
+        }
+
+        .blog-detail-header .back-link svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            transform: rotate(180deg);
+        }
+
+        .blog-detail-header h1 {
+            font-size: 56px;
+            font-weight: 500;
+            line-height: 1.2;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .blog-detail-header .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .blog-detail-header .blog-meta-item {
+            display: flex;
+            align-items: center;
+            color: #8e8e8e;
+            font-size: 14px;
+        }
+
+        .blog-detail-header .blog-meta-item svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+
+        .blog-content {
+            background: var(--theme-color);
+            padding: 100px 0;
+        }
+
+        .blog-content article h2 {
+            font-size: 36px;
+            font-weight: 500;
+            color: #fff;
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+
+        .blog-content article h3 {
+            font-size: 28px;
+            font-weight: 500;
+            color: #fff;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .blog-content article p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #a4a4a4;
+            margin-bottom: 20px;
+        }
+
+        .blog-content article ul {
+            margin: 20px 0 30px 30px;
+        }
+
+        .blog-content article ul li {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #a4a4a4;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .blog-content article ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            background: var(--main-color);
+            border-radius: 50%;
+        }
+
+        .blog-content article strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .blog-content article .highlight-box {
+            background: rgba(208, 255, 113, 0.05);
+            border-left: 4px solid var(--main-color);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .blog-content article .highlight-box p {
+            color: #fff;
+            margin-bottom: 0;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .blog-content article .featured-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .blog-content article .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-share {
+            background: var(--theme-color);
+            padding: 0 0 100px;
+        }
+
+        .blog-share .share-title {
+            font-size: 14px;
+            color: #8e8e8e;
+            margin-bottom: 15px;
+        }
+
+        .blog-share .share-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .blog-share .share-icons a {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .blog-share .share-icons a:hover {
+            background: var(--main-color);
+            border-color: var(--main-color);
+            color: #0e0f11;
+        }
+
+        @media screen and (max-width: 992px) {
+            .blog-detail-header {
+                padding: 140px 0 80px;
+            }
+
+            .blog-detail-header h1 {
+                font-size: 42px;
+            }
+
+            .blog-content {
+                padding: 60px 0;
+            }
+
+            .blog-content article h2 {
+                font-size: 28px;
+            }
+
+            .blog-content article h3 {
+                font-size: 22px;
+            }
+
+            .blog-content article p {
+                font-size: 16px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .blog-detail-header {
+                padding: 120px 0 60px;
+            }
+
+            .blog-detail-header h1 {
+                font-size: 36px;
+            }
+
+            .blog-content article p {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ==================== Start Loading ==================== -->
+    <div class="loader-wrap">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+        <div class="loader-wrap-heading">
+            <div class="load-text">
+                <span>L</span>
+                <span>o</span>
+                <span>a</span>
+                <span>d</span>
+                <span>i</span>
+                <span>n</span>
+                <span>g</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== End Loading ==================== -->
+
+    <div class="cursor"></div>
+
+    <!-- ==================== Start progress-scroll-button ==================== -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- ==================== End progress-scroll-button ==================== -->
+
+    <!-- ==================== Start Navbar ==================== -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="logo" href="../index.html">
+                <img src="../assets/imgs/logo图标.png" alt="DreamoonTech Logo">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="service-details.html">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="service-digital-marketing.html">Digital Marketing</a></li>
+                            <li><a class="dropdown-item" href="service-website-development.html">Website Development</a></li>
+                            <li><a class="dropdown-item" href="service-shopify-development.html">Shopify Development</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="blogs.html">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="topnav d-flex align-items-center">
+                <a href="contact.html" class="butn butn-rounded">
+                    <div class="d-flex align-items-center">
+                        <span>Get a Quote</span>
+                        <span class="icon ml-10">
+                            <img src="../common/imgs/icons/arrow-top-right.svg" alt="">
+                        </span>
+                    </div>
+                </a>
+                <div class="menu-icon cursor-pointer">
+                    <span class="icon ti-align-right"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hamenu">
+        <div class="close-menu cursor-pointer ti-close"></div>
+        <div class="container-fluid rest d-flex">
+            <div class="menu-links">
+                <ul class="main-menu rest">
+                    <li>
+                        <div class="o-hidden">
+                            <a href="../index.html" class="link"><span class="fill-text" data-text="Home">Home</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="about.html" class="link"><span class="fill-text" data-text="About Us">About Us</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <div class="link cursor-pointer dmenu"><span class="fill-text" data-text="Services">Services</span><i></i></div>
+                        </div>
+                        <div class="sub-menu">
+                            <ul>
+                                <li><a href="service-digital-marketing.html" class="sub-link">Digital Marketing</a></li>
+                                <li><a href="service-website-development.html" class="sub-link">Website Development</a></li>
+                                <li><a href="service-shopify-development.html" class="sub-link">Shopify Development</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="portfolio.html" class="link"><span class="fill-text" data-text="Portfolios">Portfolios</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="blogs.html" class="link"><span class="fill-text" data-text="Blogs">Blogs</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="o-hidden">
+                            <a href="contact.html" class="link"><span class="fill-text" data-text="Contact">Contact</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="cont-info valign">
+                <div class="text-center full-width">
+                    <div class="logo">
+                        <img src="../assets/imgs/logo图标.png" alt="DreamoonTech">
+                    </div>
+                    <div class="social-icon mt-40">
+                        <a href="https://www.facebook.com/people/DreamoonTech/61570271684820/" target="_blank"> <i class="fab fa-facebook-f"></i> </a>
+                        <a href="https://www.instagram.com/dreamoontech_adelaide" target="_blank"> <i class="fab fa-instagram"></i> </a>
+                        <a href="https://www.linkedin.com/company/dreamoontech" target="_blank"> <i class="fab fa-linkedin-in"></i> </a>
+                        <a href="https://www.youtube.com/@dreamoontech" target="_blank"> <i class="fab fa-youtube"></i> </a>
+                    </div>
+                    <div class="item mt-30">
+                        <h5>2/3 Greenhill Road, <br> Wayville Adelaide SA 5034</h5>
+                    </div>
+                    <div class="item mt-10">
+                        <h5><a href="mailto:contact@dreamoontech.com">contact@dreamoontech.com</a></h5>
+                        <h5 class="underline"><a href="tel:0493493597">0493 493 597</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== End Navbar ==================== -->
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <main>
+
+                <!-- ==================== Start Blog Header ==================== -->
+                <section class="blog-detail-header">
+                    <div class="container">
+                        <a href="blogs.html" class="back-link">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            Back to Blogs
+                        </a>
+                        <h1>How Healthcare Agencies in Australia Can Leverage the Internet to Grow Their Customer Base</h1>
+                        <div class="blog-meta">
+                            <div class="blog-meta-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                May 2025
+                            </div>
+                            <div class="blog-meta-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                Healthcare
+                            </div>
+                            <div class="blog-meta-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                10 min read
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Blog Header ==================== -->
+
+                <!-- ==================== Start Blog Content ==================== -->
+                <section class="blog-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <article>
+                                    <p>The healthcare industry in Australia is evolving rapidly, and with the rise of digital tools and platforms, healthcare agencies have unprecedented opportunities to reach and engage customers. The internet serves as a transformative medium, enabling agencies to connect with a broader audience, build trust, and offer services in innovative ways.</p>
+
+                                    <div class="featured-image">
+                                        <img src="assets/imgs/healthcare-agencies-grow-customer.jpg" alt="Healthcare Agencies Digital Marketing">
+                                    </div>
+
+                                    <h2>1. Establish a Strong Online Presence</h2>
+                                    <p>The first step for any healthcare agency is creating a professional and user-friendly website. This website serves as the digital storefront and must reflect the values and services of the agency.</p>
+                                    <ul>
+                                        <li><strong>Clear Service Offerings:</strong> Patients should immediately understand what the agency offers, from general consultations to specialized treatments.</li>
+                                        <li><strong>Contact Information:</strong> Easy-to-access contact details, including phone numbers, email addresses, and physical locations.</li>
+                                        <li><strong>Online Booking Systems:</strong> Many Australians value convenience, so integrating an appointment scheduling system can enhance user experience.</li>
+                                        <li><strong>Responsive Design:</strong> The site should be mobile-friendly, as a significant portion of internet traffic comes from smartphones and tablets.</li>
+                                    </ul>
+
+                                    <h2>2. Leverage Search Engine Optimization (SEO)</h2>
+                                    <p>SEO ensures that a healthcare agency's website ranks high on search engine results pages (SERPs) when potential customers search for related services. This is particularly crucial in local searches, as most patients look for nearby healthcare providers.</p>
+                                    <ul>
+                                        <li><strong>Local SEO:</strong> Optimize for location-specific keywords, such as "bulk-billing GP in Sydney" or "physiotherapist near me."</li>
+                                        <li><strong>Google My Business:</strong> Registering and optimizing the agency's Google My Business profile can improve local visibility and provide potential customers with accurate information.</li>
+                                        <li><strong>Content Optimization:</strong> Regularly publishing high-quality, informative blogs or articles that answer common health-related queries can boost the site's authority and attract organic traffic.</li>
+                                    </ul>
+
+                                    <h2>3. Build Trust Through Content Marketing</h2>
+                                    <p>Trust is a cornerstone of the healthcare industry. By providing reliable and valuable content, agencies can position themselves as thought leaders and trustworthy providers.</p>
+                                    <ul>
+                                        <li><strong>Educational Blogs:</strong> Topics like "How to Manage Chronic Back Pain" or "Signs You Should See a Cardiologist" can attract readers seeking health information.</li>
+                                        <li><strong>Video Content:</strong> Short, engaging videos featuring healthcare professionals offering tips or explaining treatments can resonate with audiences.</li>
+                                        <li><strong>Case Studies and Testimonials:</strong> Real-world success stories can build credibility and encourage potential customers to choose the agency.</li>
+                                    </ul>
+
+                                    <h2>4. Engage on Social Media Platforms</h2>
+                                    <p>Social media is a powerful tool for connecting with current and potential customers. Platforms such as Facebook, Instagram, and LinkedIn allow healthcare agencies to share updates, promote services, and engage in meaningful conversations.</p>
+                                    <ul>
+                                        <li><strong>Health Campaigns:</strong> Run awareness campaigns on topics like mental health, flu season preparation, or diabetes management.</li>
+                                        <li><strong>Interactive Posts:</strong> Polls, Q&A sessions, or live chats with doctors can increase engagement and provide value to followers.</li>
+                                        <li><strong>Targeted Advertising:</strong> Social media ads can reach specific demographics, ensuring the message gets to the right audience.</li>
+                                    </ul>
+
+                                    <h2>5. Use Paid Advertising to Expand Reach</h2>
+                                    <p>Paid advertising, through Google Ads or social media platforms, can deliver quick and measurable results.</p>
+                                    <ul>
+                                        <li><strong>Search Ads:</strong> Appear at the top of search results for keywords like "24/7 urgent care near me."</li>
+                                        <li><strong>Display Ads:</strong> Use visually engaging ads to target potential customers browsing health-related websites.</li>
+                                        <li><strong>Remarketing Campaigns:</strong> Re-engage visitors who have previously visited the agency's website but didn't book an appointment.</li>
+                                    </ul>
+
+                                    <h2>6. Incorporate Telehealth and Digital Tools</h2>
+                                    <p>Telehealth has grown exponentially in popularity, particularly in Australia's rural and remote areas where access to healthcare is limited. Offering telehealth services can:</p>
+                                    <ul>
+                                        <li><strong>Attract New Customers:</strong> Patients who might not otherwise visit in person can access care conveniently.</li>
+                                        <li><strong>Enhance Patient Retention:</strong> Existing customers can benefit from follow-ups or consultations without leaving their homes.</li>
+                                        <li><strong>Broaden Service Offerings:</strong> Digital tools like mobile apps, symptom checkers, or health trackers can improve the patient experience and differentiate the agency from competitors.</li>
+                                    </ul>
+
+                                    <h2>7. Foster Online Reviews and Reputation Management</h2>
+                                    <p>In the healthcare sector, online reviews significantly influence decision-making. A proactive approach to reputation management includes:</p>
+                                    <ul>
+                                        <li><strong>Encouraging Reviews:</strong> Politely asking satisfied patients to leave positive reviews on platforms like Google or Healthengine.</li>
+                                        <li><strong>Responding to Feedback:</strong> Address negative reviews professionally and promptly to demonstrate a commitment to patient satisfaction.</li>
+                                        <li><strong>Monitoring Mentions:</strong> Use tools to track what people are saying about the agency online, ensuring that any issues are quickly addressed.</li>
+                                    </ul>
+
+                                    <h2>8. Utilize Email Marketing</h2>
+                                    <p>Email marketing remains an effective channel for nurturing relationships and maintaining contact with patients.</p>
+                                    <ul>
+                                        <li><strong>Share Updates:</strong> Notify patients about new services, changes in operating hours, or health alerts.</li>
+                                        <li><strong>Promote Health Tips:</strong> Provide valuable insights and reminders, such as seasonal health advice or lifestyle improvement strategies.</li>
+                                        <li><strong>Re-engage Inactive Patients:</strong> Send personalized emails to encourage patients to schedule overdue check-ups.</li>
+                                    </ul>
+
+                                    <h2>9. Partner with Influencers and Healthcare Advocates</h2>
+                                    <p>In Australia, partnering with trusted influencers or healthcare advocates can amplify an agency's message.</p>
+                                    <ul>
+                                        <li><strong>Expand Reach:</strong> Access a broader and more engaged audience.</li>
+                                        <li><strong>Boost Credibility:</strong> Leverage the trust that influencers have with their followers.</li>
+                                        <li><strong>Promote Campaigns:</strong> Use influencer partnerships to drive participation in awareness initiatives or events.</li>
+                                    </ul>
+
+                                    <h2>10. Measure and Optimize Performance</h2>
+                                    <p>Finally, healthcare agencies must continuously monitor and optimize their digital strategies. Key performance indicators (KPIs) might include:</p>
+                                    <ul>
+                                        <li>Website traffic and conversion rates</li>
+                                        <li>Engagement levels on social media platforms</li>
+                                        <li>ROI from paid advertising campaigns</li>
+                                        <li>Patient feedback and satisfaction scores</li>
+                                    </ul>
+
+                                    <div class="highlight-box">
+                                        <p><strong>Conclusion:</strong> Healthcare agencies in Australia have immense potential to grow their customer base by leveraging the internet effectively. From establishing a professional online presence to engaging audiences through content marketing, social media, and paid advertising, the digital landscape offers numerous opportunities for growth. By adopting a patient-centric approach and embracing innovative technologies like telehealth, agencies can not only attract new customers but also build long-lasting relationships. With a well-rounded and data-driven digital marketing strategy, healthcare agencies can stay competitive and meet the evolving needs of Australian consumers.</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Blog Content ==================== -->
+
+                <!-- ==================== Start Blog Share ==================== -->
+                <section class="blog-share">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="share-title">Share this article:</div>
+                                <div class="share-icons">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://dreamoontech.com/2025/05/healthcare-agencies-grow-customer/" target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://twitter.com/intent/tweet?url=https://dreamoontech.com/2025/05/healthcare-agencies-grow-customer/&text=How Healthcare Agencies in Australia Can Leverage the Internet" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://dreamoontech.com/2025/05/healthcare-agencies-grow-customer/" target="_blank">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== End Blog Share ==================== -->
+
+            </main>
+
+            <!-- ==================== Start Footer ==================== -->
+            <footer class="footer-sa bord-thin-top-light pb-80">
+                <div class="container section-padding">
+                    <div class="sec-head mb-80">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <a href="../index.html" class="logo md-mb50">
+                                    <img src="../assets/imgs/logo图标.png" alt="DreamoonTech">
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4>Adelaide Web Design for Small Business.
+                                    <span class="sub-color inline">Let's grow your business online.</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-5">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span class="sub-color">location</span>
+                                            <p>2/3 Greenhill Road, Wayville Adelaide SA 5034</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-end">
+                                        <div class="item">
+                                            <span class="sub-color">inquiry</span>
+                                            <p><a href="mailto:contact@dreamoontech.com">contact@dreamoontech.com</a></p>
+                                            <p><a href="tel:0493493597">0493 493 597</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 offset-lg-5">
+                                <div class="social-icon">
+                                    <a href="https://www.facebook.com/people/DreamoonTech/61570271684820/" target="_blank">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/dreamoontech_adelaide" target="_blank">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/dreamoontech" target="_blank">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/@dreamoontech" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="copy sub-color md-mb30">
+                                    <p>© 2024 DreamoonTech. All Rights Reserved</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 d-flex justify-content-end">
+                                <div class="links sub-color d-flex justify-content-between">
+                                    <a href="../index.html">Home</a>
+                                    <a href="portfolio.html">Portfolios</a>
+                                    <a href="about.html">About</a>
+                                    <a href="blogs.html" class="active">Blogs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- ==================== End Footer ==================== -->
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../common/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="../common/js/lib/jquery-migrate-3.4.0.min.js"></script>
+
+    <!-- plugins -->
+    <script src="../common/js/lib/plugins.js"></script>
+
+    <!-- GSAP -->
+    <script src="../common/js/gsap_lib/gsap.min.js"></script>
+    <script src="../common/js/gsap_lib/ScrollSmoother.min.js"></script>
+    <script src="../common/js/gsap_lib/ScrollTrigger.min.js"></script>
+    <script src="../common/js/gsap_lib/SplitText.min.js"></script>
+
+    <!-- common scripts -->
+    <script src="../common/js/common_scripts.js"></script>
+
+    <!-- custom scripts -->
+    <script src="../assets/js/scripts.js"></script>
+
+</body>
+
+</html>
