@@ -137,8 +137,8 @@ $(function () {
 
         // Always create ScrollSmoother
         let smoother = ScrollSmoother.create({
-            smooth: 2,
-            effects: true,
+            smooth: 0,
+            effects: false,
         });
         window.dreamoonSmoother = smoother;
 
