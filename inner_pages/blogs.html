@@ -241,7 +241,7 @@
             transform: translateX(5px);
         }
 
-        /* All Posts Section */
+        /* All Posts Section - Masonry Layout */
         .all-posts-section {
             background: var(--theme-color);
             padding: 100px 0;
@@ -261,75 +261,105 @@
             margin-bottom: 50px;
         }
 
-        .blog-list-item {
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            align-items: flex-start;
-            transition: all 0.3s ease;
+        /* Blog Grid */
+        .blog-masonry {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
         }
 
-        .blog-list-item:hover {
-            background: rgba(255, 255, 255, 0.02);
-            padding-left: 20px;
-            padding-right: 20px;
+        .blog-card {
+            background: #1a1a1a;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .blog-list-item .post-number {
-            flex-shrink: 0;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(208, 255, 113, 0.1);
-            border-radius: 50%;
-            color: #d0ff71;
-            font-size: 18px;
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(208, 255, 113, 0.15);
+        }
+
+        .blog-card .card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .blog-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-card .card-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 5px 14px;
+            background: rgba(208, 255, 113, 0.9);
+            color: #0e0f11;
+            font-size: 11px;
             font-weight: 600;
-            margin-right: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            z-index: 2;
         }
 
-        .blog-list-item .post-info {
-            flex: 1;
+        .blog-card .card-content {
+            padding: 22px;
         }
 
-        .blog-list-item .post-title {
-            font-size: 22px;
+        .blog-card .card-date {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .blog-card .card-title {
+            font-size: 17px;
             font-weight: 500;
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-
-        .blog-list-item .post-title a {
+            line-height: 1.45;
+            margin-bottom: 0;
             color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
             letter-spacing: 0.1px;
         }
 
-        .blog-list-item .post-title a:hover {
+        .blog-card:hover .card-title {
             color: #d0ff71;
         }
 
-        .blog-list-item .post-meta {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            font-size: 14px;
-            color: #8e8e8e;
+        @media screen and (max-width: 992px) {
+            .blog-masonry {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
         }
 
-        .blog-list-item .post-meta span {
-            display: flex;
-            align-items: center;
-        }
+        @media screen and (max-width: 768px) {
+            .blog-masonry {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
 
-        .blog-list-item .post-meta svg {
-            width: 16px;
-            height: 16px;
-            margin-right: 8px;
-            opacity: 0.6;
+            .blog-card .card-image {
+                height: 180px;
+            }
+
+            .blog-card .card-title {
+                font-size: 16px;
+            }
         }
 
         /* CTA Section */
@@ -398,44 +428,69 @@
 
         /* Pagination */
         .blogs-pagination {
-            padding: 60px 0 100px;
-        }
-
-        .blogs-pagination ul {
+            margin-top: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
+            gap: 10px;
         }
 
-        .blogs-pagination li a {
+        .blogs-pagination .page-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 50%;
             color: #fff;
             font-size: 15px;
             font-weight: 500;
             text-decoration: none;
+            cursor: pointer;
             transition: all 0.3s ease;
+            background: transparent;
         }
 
-        .blogs-pagination li a:hover,
-        .blogs-pagination li a.active {
+        .blogs-pagination .page-btn:hover {
+            border-color: rgba(208, 255, 113, 0.5);
+            color: #d0ff71;
+        }
+
+        .blogs-pagination .page-btn.active {
             background: #d0ff71;
             border-color: #d0ff71;
             color: #0e0f11;
         }
 
-        .blogs-pagination li.page-next {
-            width: auto;
-            padding: 0 30px;
+        .blogs-pagination .page-btn.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .blogs-pagination .page-btn.disabled:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        .blogs-pagination .page-arrow {
+            width: 48px;
+            height: 48px;
+        }
+
+        .blogs-pagination .page-arrow i {
+            font-size: 14px;
+        }
+
+        .blogs-pagination #pageNumbers {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        /* Blog card hidden state for pagination */
+        .blog-card.hidden {
+            display: none;
         }
 
         /* Responsive */
@@ -742,347 +797,212 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">01</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-marketing-tools-2024.html">What are the most popular marketing tools in 2024?</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                June 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Marketing
-                                            </span>
-                                        </div>
-                                    </div>
+                        <div class="blog-masonry">
+                            <!-- Card 1 - Large -->
+                            <a href="blog-marketing-tools-2024.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/most-popular-marketing-tools-2024.png" alt="Marketing Tools 2024">
+                                    <span class="card-category">Marketing</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">June 2025</div>
+                                    <h3 class="card-title">What are the most popular marketing tools in 2024?</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">02</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-facebook-marketing.html">The 8 Evolutionary Paths of Facebook Marketing</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Social Media
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 2 - Medium -->
+                            <a href="blog-facebook-marketing.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/evolutionary-paths-of-facebook-marketing.jpg" alt="Facebook Marketing">
+                                    <span class="card-category">Social Media</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">The 8 Evolutionary Paths of Facebook Marketing</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">03</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-startup-growth.html">Growing Customers for a Startup Website: Key Focus Areas</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Startup
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 3 - Small -->
+                            <a href="blog-startup-growth.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/startup-website-customer-growth.jpg" alt="Startup Growth">
+                                    <span class="card-category">Startup</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">Growing Customers for a Startup Website</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">04</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-healthcare-agencies-grow-customer.html">How Healthcare Agencies in Australia Can Leverage the Internet to Grow Their Customer Base</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Healthcare
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 4 - Wide -->
+                            <a href="blog-healthcare-agencies-grow-customer.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/healthcare-agencies-grow-customer.jpg" alt="Healthcare Agencies">
+                                    <span class="card-category">Healthcare</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">How Healthcare Agencies Can Leverage the Internet to Grow</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">05</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-website-design-strategies-grow-customer.html">Website Design Strategies to Grow Your Customer Base in the Australian Market</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Web Design
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 5 - Medium -->
+                            <a href="blog-website-design-strategies-grow-customer.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/website-design-strategies-grow-customer.jpg" alt="Website Design">
+                                    <span class="card-category">Web Design</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">Website Design Strategies to Grow Your Customer Base</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">06</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-mobile-onboarding-visual-analytics.html">Refining Your Mobile Onboarding Experience Using Visual Analytics</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                June 2024
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                UX Design
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 6 -->
+                            <a href="blog-mobile-onboarding-visual-analytics.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/refining-your-mobile-on-boarding-experience-using-visual-analytics.jpg" alt="Mobile Onboarding">
+                                    <span class="card-category">UX Design</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">June 2024</div>
+                                    <h3 class="card-title">Refining Your Mobile Onboarding Experience Using Visual Analytics</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">07</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-css-border-image-property.html">The Complex but Awesome CSS Border-Image Property for Web Design</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                June 2024
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Web Design
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 7 - Small -->
+                            <a href="blog-css-border-image-property.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/the-complex-but-awesome-css-border-image-property-for-web-design.jpg" alt="CSS Border Image">
+                                    <span class="card-category">Web Design</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">June 2024</div>
+                                    <h3 class="card-title">The CSS Border-Image Property</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">08</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-retrieval-auto-generated-read-content-models.html">A Simple Guide to Retrieval Auto Generated Read Content Models</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                June 2024
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Technology
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 8 - Large -->
+                            <a href="blog-retrieval-auto-generated-read-content-models.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/a-simple-guide-to-retrieval-auto-generated-read-content-models.jpg" alt="Content Models">
+                                    <span class="card-category">Technology</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">June 2024</div>
+                                    <h3 class="card-title">A Simple Guide to Retrieval Auto Generated Read Content Models</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">09</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-business-growth-strategies.html">Business Growth Strategies</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 26, 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Business
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 9 - Medium -->
+                            <a href="blog-business-growth-strategies.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/business-growth-strategies.jpg" alt="Business Growth">
+                                    <span class="card-category">Business</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">Business Growth Strategies</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">10</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-entrepreneurial-journeys.html">Entrepreneurial Journeys</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 26, 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Entrepreneurship
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 10 -->
+                            <a href="blog-entrepreneurial-journeys.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/entrepreneurial-journeys.jpg" alt="Entrepreneurial Journeys">
+                                    <span class="card-category">Entrepreneurship</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">Entrepreneurial Journeys</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">11</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-business-resilience-tips.html">Business Resilience Tips</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 26, 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Business
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 11 - Small -->
+                            <a href="blog-business-resilience-tips.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/business-resilience-tips.jpg" alt="Business Resilience">
+                                    <span class="card-category">Business</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">Business Resilience Tips</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">12</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-building-quality-sustainable.html">Building Quality Sustainable</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 26, 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Sustainability
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 12 - Medium -->
+                            <a href="blog-building-quality-sustainable.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/building-quality-sustainable.jpg" alt="Sustainable Building">
+                                    <span class="card-category">Sustainability</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">Building Quality Sustainable</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">13</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-market-research-strategy.html">Market Research & Strategy</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 26, 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Marketing
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 13 - Wide -->
+                            <a href="blog-market-research-strategy.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/market-research-strategy.jpg" alt="Market Research">
+                                    <span class="card-category">Marketing</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">Market Research & Strategy</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">14</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-business-consultation.html">Business Consultation</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 26, 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Business
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 14 - Small -->
+                            <a href="blog-business-consultation.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/business-consultation.jpg" alt="Business Consultation">
+                                    <span class="card-category">Business</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">Business Consultation</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">15</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-insights-from-industry-leaders.html">Insights from Industry Leaders</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 26, 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Leadership
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 15 -->
+                            <a href="blog-insights-from-industry-leaders.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/insights-from-industry-leaders.jpg" alt="Industry Leaders">
+                                    <span class="card-category">Leadership</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">Insights from Industry Leaders</h3>
+                                </div>
+                            </a>
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-item">
-                                    <div class="post-number">16</div>
-                                    <div class="post-info">
-                                        <h4 class="post-title">
-                                            <a href="blog-donate-your-design.html">Donate Your Design for Newest Designer to Try Better</a>
-                                        </h4>
-                                        <div class="post-meta">
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002 2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                May 26, 2025
-                                            </span>
-                                            <span>
-                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7A2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                                                Design
-                                            </span>
-                                        </div>
-                                    </div>
+                            <!-- Card 16 - Medium -->
+                            <a href="blog-donate-your-design.html" class="blog-card">
+                                <div class="card-image">
+                                    <img src="assets/imgs/donate-your-design-for-newest-designer-to-try-better.jpg" alt="Donate Design">
+                                    <span class="card-category">Design</span>
                                 </div>
-                            </div>
+                                <div class="card-content">
+                                    <div class="card-date">May 2025</div>
+                                    <h3 class="card-title">Donate Your Design for Newest Designers</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="blogs-pagination" id="blogPagination">
+                            <button class="page-btn page-arrow" id="prevPage" aria-label="Previous page">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <div id="pageNumbers"></div>
+                            <button class="page-btn page-arrow" id="nextPage" aria-label="Next page">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
                         </div>
                     </div>
                 </section>
-
-                <!-- ==================== End Blog Posts ==================== -->
 
                 <!-- ==================== End Blog Posts ==================== -->
 
@@ -1162,7 +1082,7 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="copy sub-color md-mb30">
-                                    <p>© 2024 DreamoonTech. All Rights Reserved</p>
+                                    <p>© 2025 DreamoonTech. All Rights Reserved</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 d-flex justify-content-end">
@@ -1201,6 +1121,81 @@
 
     <!-- custom scripts -->
     <script src="../assets/js/scripts.js"></script>
+
+    <!-- Blog Pagination -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.blog-masonry .blog-card');
+        const cardsPerPage = 6;
+        const totalPages = Math.ceil(cards.length / cardsPerPage);
+        let currentPage = 1;
+
+        const pageNumbersContainer = document.getElementById('pageNumbers');
+        const prevBtn = document.getElementById('prevPage');
+        const nextBtn = document.getElementById('nextPage');
+
+        // Create page number buttons
+        function createPageNumbers() {
+            pageNumbersContainer.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement('button');
+                btn.className = 'page-btn' + (i === currentPage ? ' active' : '');
+                btn.textContent = i;
+                btn.addEventListener('click', () => goToPage(i));
+                pageNumbersContainer.appendChild(btn);
+            }
+        }
+
+        // Show cards for current page
+        function showPage(page) {
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
+
+            cards.forEach((card, index) => {
+                if (index >= start && index < end) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Update button states
+            prevBtn.classList.toggle('disabled', page === 1);
+            nextBtn.classList.toggle('disabled', page === totalPages);
+
+            // Update active page number
+            document.querySelectorAll('#pageNumbers .page-btn').forEach((btn, index) => {
+                btn.classList.toggle('active', index + 1 === page);
+            });
+        }
+
+        // Go to specific page
+        function goToPage(page) {
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            showPage(currentPage);
+
+            // Scroll to top of blog section
+            document.querySelector('.all-posts-section').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Event listeners
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) goToPage(currentPage - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) goToPage(currentPage + 1);
+        });
+
+        // Initialize
+        createPageNumbers();
+        showPage(1);
+    });
+    </script>
 
 </body>
 
