@@ -84,128 +84,64 @@
         }
 
         /* ========== Portfolio Grid ========== */
-        .portfolio-grid {
-            background-color: var(--theme-color);
-            padding: 0 0 120px;
-        }
-
         .portfolio-grid .row {
-            margin: 0 -15px;
+            --bs-gutter-x: 30px;
+            row-gap: 30px;
         }
 
-        .portfolio-grid .row > div {
-            padding: 0 15px;
-            margin-bottom: 30px;
-        }
-
-        /* Card */
-        .project-card {
+        .pf-card {
             display: block;
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
             text-decoration: none;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: border-color 0.4s, transform 0.4s;
         }
 
-        .project-card .thumbnail {
+        .pf-card:hover {
+            border-color: rgba(208, 255, 113, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .pf-img {
             position: relative;
-            height: 380px;
+            aspect-ratio: 4 / 3;
             overflow: hidden;
         }
 
-        .project-card .thumbnail img {
+        .pf-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top center;
             transition: transform 0.6s ease;
         }
 
-        .project-card:hover .thumbnail img {
+        .pf-card:hover .pf-img img {
             transform: scale(1.05);
         }
 
-        /* Overlay */
-        .project-card .thumbnail::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 70%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            pointer-events: none;
+        .pf-info {
+            padding: 22px 24px;
         }
 
-        /* Category Tag */
-        .project-card .tag {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 8px 18px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 500;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 2;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover .tag {
-            background: var(--main-color);
-            color: var(--theme-color);
-        }
-
-        /* Card Info */
-        .project-card .card-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 30px;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .project-card .card-info h4 {
-            font-size: 22px;
+        .pf-info h5 {
+            font-size: 18px;
             font-weight: 600;
             color: #fff;
-            margin: 0;
-            transition: color 0.3s ease;
+            margin: 0 0 6px;
+            transition: color 0.3s;
         }
 
-        .project-card:hover .card-info h4 {
+        .pf-card:hover .pf-info h5 {
             color: var(--main-color);
         }
 
-        .project-card .card-info .icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateX(-15px);
-        }
-
-        .project-card:hover .card-info .icon {
-            opacity: 1;
-            transform: translateX(0);
-            background: var(--main-color);
-            border-color: var(--main-color);
-            color: var(--theme-color);
+        .pf-info span {
+            font-size: 13px;
+            color: #777;
+            letter-spacing: 0.5px;
         }
 
         /* ========== Responsive ========== */
@@ -214,12 +150,8 @@
                 font-size: 48px;
             }
 
-            .project-card .thumbnail {
-                height: 320px;
-            }
-
-            .project-card .card-info h4 {
-                font-size: 20px;
+            .portfolio-grid .row {
+                row-gap: 24px;
             }
         }
 
@@ -237,31 +169,20 @@
                 font-size: 16px;
             }
 
-            .portfolio-grid {
-                padding-bottom: 80px;
+            .portfolio-grid .row {
+                row-gap: 20px;
             }
 
-            .project-card .thumbnail {
-                height: 260px;
+            .pf-info {
+                padding: 18px 20px;
             }
 
-            .project-card .card-info {
-                padding: 20px;
+            .pf-info h5 {
+                font-size: 16px;
             }
 
-            .project-card .card-info h4 {
-                font-size: 18px;
-            }
-
-            .project-card .tag {
-                font-size: 10px;
-                padding: 6px 14px;
-            }
-
-            .project-card .card-info .icon {
-                width: 40px;
-                height: 40px;
-                font-size: 14px;
+            .pf-info span {
+                font-size: 12px;
             }
         }
 
@@ -646,118 +567,102 @@
                 </section>
 
                 <!-- Portfolio Grid -->
-                <section class="portfolio-grid">
+                <section class="portfolio-grid section-padding pt-0">
                     <div class="container">
                         <div class="row">
 
-                            <!-- Meebella Estate -->
-                            <div class="col-lg-6">
-                                <a href="project-meebella-estate.html" class="project-card">
-                                    <div class="thumbnail">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="project-meebella-estate.html" class="pf-card">
+                                    <div class="pf-img">
                                         <img src="../assets/imgs/works/Meebella Estate.jpg" alt="Meebella Estate">
-                                        <span class="tag">Wine / Hospitality</span>
                                     </div>
-                                    <div class="card-info">
-                                        <h4>Meebella Estate</h4>
-                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    <div class="pf-info">
+                                        <h5>Meebella Estate</h5>
+                                        <span>Wine / Hospitality</span>
                                     </div>
                                 </a>
                             </div>
 
-                            <!-- Lee's Plumbing -->
-                            <div class="col-lg-6">
-                                <a href="project-lees-plumbing.html" class="project-card">
-                                    <div class="thumbnail">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="project-lees-plumbing.html" class="pf-card">
+                                    <div class="pf-img">
                                         <img src="../assets/imgs/works/lee's plumbing and gas service.jpg" alt="Lee's Plumbing">
-                                        <span class="tag">Trade Services</span>
                                     </div>
-                                    <div class="card-info">
-                                        <h4>Lee's Plumbing and Gas Services</h4>
-                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    <div class="pf-info">
+                                        <h5>Lee's Plumbing and Gas Services</h5>
+                                        <span>Trade Services</span>
                                     </div>
                                 </a>
                             </div>
 
-                            <!-- Adelaide Cleaning -->
-                            <div class="col-lg-6">
-                                <a href="project-adelaide-cleaning.html" class="project-card">
-                                    <div class="thumbnail">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="project-adelaide-cleaning.html" class="pf-card">
+                                    <div class="pf-img">
                                         <img src="../assets/imgs/works/adelaide cleaning solution.jpg" alt="Adelaide Cleaning Solution">
-                                        <span class="tag">Cleaning Services</span>
                                     </div>
-                                    <div class="card-info">
-                                        <h4>Adelaide Cleaning Solution</h4>
-                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    <div class="pf-info">
+                                        <h5>Adelaide Cleaning Solution</h5>
+                                        <span>Cleaning Services</span>
                                     </div>
                                 </a>
                             </div>
 
-                            <!-- Prime Gardening -->
-                            <div class="col-lg-6">
-                                <a href="project-primegardening.html" class="project-card">
-                                    <div class="thumbnail">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="project-primegardening.html" class="pf-card">
+                                    <div class="pf-img">
                                         <img src="../assets/imgs/works/Primegardening.jpg" alt="Prime Gardening">
-                                        <span class="tag">Landscaping</span>
                                     </div>
-                                    <div class="card-info">
-                                        <h4>Prime Gardening</h4>
-                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    <div class="pf-info">
+                                        <h5>Prime Gardening</h5>
+                                        <span>Landscaping</span>
                                     </div>
                                 </a>
                             </div>
 
-                            <!-- DatumCo -->
-                            <div class="col-lg-6">
-                                <a href="project-datumco.html" class="project-card">
-                                    <div class="thumbnail">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="project-datumco.html" class="pf-card">
+                                    <div class="pf-img">
                                         <img src="../assets/imgs/works/DatumCo.jpg" alt="DatumCo">
-                                        <span class="tag">Corporate</span>
                                     </div>
-                                    <div class="card-info">
-                                        <h4>DatumCo</h4>
-                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    <div class="pf-info">
+                                        <h5>DatumCo</h5>
+                                        <span>Corporate</span>
                                     </div>
                                 </a>
                             </div>
 
-                            <!-- Timely Health -->
-                            <div class="col-lg-6">
-                                <a href="project-timely-health.html" class="project-card">
-                                    <div class="thumbnail">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="project-timely-health.html" class="pf-card">
+                                    <div class="pf-img">
                                         <img src="../assets/imgs/works/Timely health assist.jpg" alt="Timely Health Assist">
-                                        <span class="tag">Healthcare</span>
                                     </div>
-                                    <div class="card-info">
-                                        <h4>Timely Health Assist</h4>
-                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    <div class="pf-info">
+                                        <h5>Timely Health Assist</h5>
+                                        <span>Healthcare</span>
                                     </div>
                                 </a>
                             </div>
 
-                            <!-- ONE 9&9 -->
-                            <div class="col-lg-6">
-                                <a href="project-one-99.html" class="project-card">
-                                    <div class="thumbnail">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="project-one-99.html" class="pf-card">
+                                    <div class="pf-img">
                                         <img src="../assets/imgs/works/One 9&9.jpg" alt="One 9&9">
-                                        <span class="tag">Business</span>
                                     </div>
-                                    <div class="card-info">
-                                        <h4>ONE 9&9</h4>
-                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    <div class="pf-info">
+                                        <h5>ONE 9&9</h5>
+                                        <span>Business</span>
                                     </div>
                                 </a>
                             </div>
 
-                            <!-- Jiangsu Chamber -->
-                            <div class="col-lg-6">
-                                <a href="project-jiangsu-chamber.html" class="project-card">
-                                    <div class="thumbnail">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="project-jiangsu-chamber.html" class="pf-card">
+                                    <div class="pf-img">
                                         <img src="../assets/imgs/works/Jiangsu Camber of commerce of South Australia.jpg" alt="Jiangsu Chamber of Commerce">
-                                        <span class="tag">Community</span>
                                     </div>
-                                    <div class="card-info">
-                                        <h4>Jiangsu Chamber of Commerce SA</h4>
-                                        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    <div class="pf-info">
+                                        <h5>Jiangsu Chamber of Commerce SA</h5>
+                                        <span>Community</span>
                                     </div>
                                 </a>
                             </div>
@@ -941,7 +846,7 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="copy sub-color md-mb30">
-                                    <p>© 2024 DreamoonTech. All Right Reserved</p>
+                                    <p>© 2025 DreamoonTech. All Right Reserved</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 d-flex justify-content-end">
