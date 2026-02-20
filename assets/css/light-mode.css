@@ -6,7 +6,8 @@
 /* CSS 变量覆盖 - 确保所有区域都使用明亮背景 */
 [data-theme="light"] {
   --bg-color: #ffffff !important;
-  --theme-color: #ffffff !important; }
+  --theme-color: #ffffff !important;
+  --main-color: #ADD45D !important; }
 
 /* ========== 全局基础 ========== */
 [data-theme="light"] html {
@@ -218,7 +219,7 @@
   color: #666666 !important; }
 
 [data-theme="light"] .testimonials-sa .item .info-text .stars i {
-  color: #EF2B10 !important; }
+  color: #ADD45D !important; }
 
 /* ========== 客户案例区域 ========== */
 [data-theme="light"] .portfolio {
@@ -257,7 +258,7 @@
   color: #1a1a1a !important; }
 
 [data-theme="light"] .blog-sa .item h6 a:hover {
-  color: #0047FF !important; }
+  color: #ADD45D !important; }
 
 [data-theme="light"] .blog-sa .item .info a {
   color: #555555 !important; }
@@ -336,7 +337,7 @@
   color: #1a1a1a !important; }
 
 [data-theme="light"] .blog-sa .item .cont h6 a:hover {
-  color: #0047FF !important; }
+  color: #ADD45D !important; }
 
 [data-theme="light"] .blog-sa .item .cont .info a {
   color: #555555 !important; }
@@ -385,11 +386,11 @@
 [data-theme="light"] .footer-sa {
   background: #1a1a1a !important; }
 
-[data-theme="light"] .footer-sa h4 {
+[data-theme="light"] .footer-sa h4,
+[data-theme="light"] .footer-sa h4 span,
+[data-theme="light"] .footer-sa h4 .sub-color,
+[data-theme="light"] .footer-sa .sub-color {
   color: #ffffff !important; }
-
-[data-theme="light"] .footer-sa h4 span {
-  color: rgba(255, 255, 255, 0.7) !important; }
 
 [data-theme="light"] .footer-sa .logo {
   filter: brightness(0) invert(1) !important; }
@@ -412,13 +413,13 @@
   background: rgba(255, 255, 255, 0.1) !important; }
 
 [data-theme="light"] .footer-sa .sub-footer .copy p {
-  color: rgba(255, 255, 255, 0.6) !important; }
+  color: #aaaaaa !important; }
 
 [data-theme="light"] .footer-sa .sub-footer .copy p a {
-  color: #ffffff !important; }
+  color: #aaaaaa !important; }
 
 [data-theme="light"] .footer-sa .sub-footer .links a {
-  color: rgba(255, 255, 255, 0.7) !important; }
+  color: #aaaaaa !important; }
 
 [data-theme="light"] .footer-sa .sub-footer .links a:hover {
   color: #ffffff !important; }
@@ -555,3 +556,248 @@
 
 [data-theme="light"] .theme-toggle svg {
   fill: #1a1a1a; }
+
+/* ========== Blog Cards ========== */
+[data-theme="light"] .blog-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .blog-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(173, 212, 93, 0.3) !important;
+}
+
+[data-theme="light"] .blog-card .card-date {
+  color: #666666 !important;
+}
+
+[data-theme="light"] .blog-card .card-title {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .blog-card:hover .card-title {
+  color: #ADD45D !important;
+}
+
+/* ========== Blog Stats ========== */
+[data-theme="light"] .blog-stats {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .blog-stats .stat-item:not(:last-child)::after {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent) !important;
+}
+
+[data-theme="light"] .blog-stats .stat-label {
+  color: #666666 !important;
+}
+
+/* ========== Blog Header & Search ========== */
+[data-theme="light"] .blog-header {
+  background: #f8f9fa !important;
+}
+
+[data-theme="light"] .blog-header h1 {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .blog-header h1 span {
+  color: #ADD45D !important;
+}
+
+[data-theme="light"] .blog-header .sub-head {
+  color: #ADD45D !important;
+}
+
+[data-theme="light"] .blog-header > p {
+  color: #666666 !important;
+}
+
+[data-theme="light"] .blog-header h1 {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .blog-header h1 span {
+  color: #ADD45D !important;
+}
+
+[data-theme="light"] .blog-search input {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .blog-search input::placeholder {
+  color: #999999 !important;
+}
+
+[data-theme="light"] .blog-search input:focus {
+  border-color: #ADD45D !important;
+}
+
+[data-theme="light"] .blog-search .search-icon {
+  color: #666666 !important;
+}
+
+[data-theme="light"] .blog-header > p {
+  color: #666666 !important;
+}
+
+/* ========== Blog Categories ========== */
+[data-theme="light"] .blog-categories {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .blog-categories h3 {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .blog-categories a {
+  color: #666666 !important;
+}
+
+[data-theme="light"] .blog-categories a:hover,
+[data-theme="light"] .blog-categories a.active {
+  color: #ADD45D !important;
+}
+
+[data-theme="light"] .blog-categories .count {
+  color: #999999 !important;
+}
+
+/* ========== Blog CTA ========== */
+[data-theme="light"] .blogs-cta {
+  background: #f8f9fa !important;
+}
+
+[data-theme="light"] .blogs-cta h2 {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .blogs-cta p {
+  color: #666666 !important;
+}
+
+[data-theme="light"] .blogs-cta .butn {
+  background: #ADD45D !important;
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .blogs-cta .butn:hover {
+  background: #91B34F !important;
+}
+
+/* ========== Blog Pagination ========== */
+[data-theme="light"] .blogs-pagination .page-btn {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .blogs-pagination .page-btn:hover {
+  border-color: #ADD45D !important;
+  color: #ADD45D !important;
+}
+
+[data-theme="light"] .blogs-pagination .page-btn.active {
+  background: #ADD45D !important;
+  color: #1a1a1a !important;
+}
+
+/* ========== Featured Posts ========== */
+[data-theme="light"] .featured-posts {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .featured-posts .section-title-blogs h2 {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .featured-posts .section-title-blogs p {
+  color: #666666 !important;
+}
+
+[data-theme="light"] .featured-posts {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .featured-posts .post-card .post-category {
+  color: #ADD45D !important;
+}
+
+[data-theme="light"] .featured-posts .post-card .post-title a {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .featured-posts .post-card .post-title a:hover {
+  color: #ADD45D !important;
+}
+
+[data-theme="light"] .featured-posts .post-card .post-excerpt {
+  color: #666666 !important;
+}
+
+[data-theme="light"] .featured-posts .post-card .post-meta span {
+  color: #999999 !important;
+}
+
+[data-theme="light"] .featured-posts .post-card .post-meta a {
+  color: #ADD45D !important;
+}
+
+[data-theme="light"] .featured-posts .section-title-blogs p {
+  color: #666666 !important;
+}
+
+[data-theme="light"] .featured-posts .post-card .post-content h3 {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .featured-posts .post-card .post-content p {
+  color: #666666 !important;
+}
+
+[data-theme="light"] .featured-posts .post-card .post-meta span {
+  color: #999999 !important;
+}
+
+[data-theme="light"] .featured-posts .post-card .post-meta a {
+  color: #ADD45D !important;
+}
+
+/* ========== All Posts Section ========== */
+[data-theme="light"] .all-posts-section {
+  background: #f8f9fa !important;
+}
+
+[data-theme="light"] .all-posts-section .section-title-blogs h2 {
+  color: #1a1a1a !important;
+}
+
+/* ========== Blog Card Category Tag ========== */
+[data-theme="light"] .blog-card .card-category {
+  background: rgba(173, 212, 93, 0.9) !important;
+  color: #1a1a1a !important;
+}
+
+/* ========== Contact Form ========== */
+[data-theme="light"] .contact-sa .contact-form input,
+[data-theme="light"] .contact-sa .contact-form textarea,
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group textarea,
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  color: #1a1a1a !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="light"] .contact-sa .contact-form input::placeholder,
+[data-theme="light"] .contact-sa .contact-form textarea::placeholder,
+[data-theme="light"] .form-group input::placeholder,
+[data-theme="light"] .form-group textarea::placeholder,
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #999999 !important;
+}
