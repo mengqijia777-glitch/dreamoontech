@@ -14,6 +14,16 @@
     <!-- Title  -->
     <title>Business Growth Strategies | DreamoonTech</title>
 
+    <!-- Theme detection - must be in head to prevent flash -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme-preference');
+        if (savedTheme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="../assets/imgs/favicon.ico">
 

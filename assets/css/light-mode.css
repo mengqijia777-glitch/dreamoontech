@@ -500,6 +500,12 @@
 [data-theme="light"] .loader-wrap svg {
   fill: #ffffff !important; }
 
+[data-theme="light"] .loader-wrap .loader-wrap-heading .load-text {
+  color: #1a1a1a !important; }
+
+[data-theme="light"] .loader-wrap {
+  background: #ffffff !important; }
+
 [data-theme="light"] .icon.invert img {
   filter: invert(0) !important; }
 
