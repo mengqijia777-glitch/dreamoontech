@@ -415,8 +415,9 @@
 [data-theme="light"] .footer-sa {
   background: #1a1a1a !important; }
 
-[data-theme="light"] .footer-sa h4,
-[data-theme="light"] .footer-sa h4 span,
+html[data-theme="light"] .footer-sa h4 {
+  color: #8e8e8e !important; }
+
 [data-theme="light"] .footer-sa h4 .sub-color,
 [data-theme="light"] .footer-sa .sub-color {
   color: #ffffff !important; }

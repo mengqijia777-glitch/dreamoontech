@@ -628,6 +628,12 @@ h6 {
 .sub-color {
   color: #8e8e8e; }
 
+.footer-sa h4 .sub-color {
+  color: #ffffff; }
+
+.footer-sa h4 {
+  color: #8e8e8e; }
+
 .sub-head {
   font-size: 20px;
   line-height: 28px; }
