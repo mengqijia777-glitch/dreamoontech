@@ -20,6 +20,7 @@
         const savedTheme = localStorage.getItem('theme-preference');
         if (savedTheme === 'light') {
           document.documentElement.setAttribute('data-theme', 'light');
+          document.body.style.minWidth = '1200px';
         }
       })();
     </script>
@@ -453,7 +454,7 @@
                                     <div class="ml-auto">
                                         <div class="text-right">
                                             <div class="icon">
-                                                <img src="../common/imgs/icons/cart-shopping-solid.svg" alt="">
+                                                <img src="../common/imgs/icons/shopping-cart-solid.svg" alt="">
                                                 <span class="arrow">
                                                     <img src="../common/imgs/icons/arrow-top-right.svg" alt="">
                                                 </span>

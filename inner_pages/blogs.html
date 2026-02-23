@@ -20,6 +20,7 @@
         const savedTheme = localStorage.getItem('theme-preference');
         if (savedTheme === 'light') {
           document.documentElement.setAttribute('data-theme', 'light');
+          document.body.style.minWidth = '1200px';
         }
       })();
     </script>
