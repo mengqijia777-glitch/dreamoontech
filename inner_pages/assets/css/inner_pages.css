@@ -2209,6 +2209,49 @@ p {
     }
 }
 
+/* --------------- Dark Logo Sizing --------------- */
+.navbar .logo img {
+    width: 270px;
+    max-width: none;
+    height: auto;
+    display: block;
+}
+
+.hamenu .cont-info .logo {
+    width: 230px;
+}
+
+.hamenu .cont-info .logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer-sa .logo {
+    width: 190px;
+}
+
+.footer-sa .logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar .logo img {
+        width: 136px;
+        max-width: 136px;
+    }
+
+    .hamenu .cont-info .logo {
+        width: 180px;
+    }
+
+    .footer-sa .logo {
+        width: 160px;
+    }
+}
+
 /* ==================== 作品集卡片 - 深色主题设计 ==================== */
 .work-card {
     background-color: var(--theme-color);

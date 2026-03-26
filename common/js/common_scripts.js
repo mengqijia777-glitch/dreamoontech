@@ -76,12 +76,20 @@ $(function () {
         if (bodyScroll > 300) {
 
             navbar.addClass("nav-scroll");
-            logo.attr('src', 'assets/imgs/logo-dark.png');
+            if ($("html").attr("data-theme") === "light") {
+                logo.attr('src', 'assets/imgs/3.png');
+            } else {
+                logo.attr('src', 'assets/imgs/4.png');
+            }
 
         } else {
 
             navbar.removeClass("nav-scroll");
-            logo.attr('src', 'assets/imgs/logo-light.png');
+            if ($("html").attr("data-theme") === "light") {
+                logo.attr('src', 'assets/imgs/3.png');
+            } else {
+                logo.attr('src', 'assets/imgs/4.png');
+            }
         }
     });
 

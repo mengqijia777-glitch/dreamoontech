@@ -18,6 +18,7 @@
     if (savedTheme === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
     }
+    updateLogos();
     setupToggleButton();
     updateIcon();
   }
@@ -37,7 +38,24 @@
         html.setAttribute('data-theme', 'light');
         localStorage.setItem(STORAGE_KEY, 'light');
       }
+      updateLogos();
       updateIcon();
+    });
+  }
+
+  function updateLogos() {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+
+    document.querySelectorAll('.navbar .logo > img:not(.logo-dark):not(.logo-light)').forEach(function(img) {
+      const currentSrc = img.getAttribute('src') || '';
+      const darkSrc = currentSrc.replace(/3\.png$/, '4.png');
+      const lightSrc = currentSrc.replace(/4\.png$/, '3.png');
+
+      if (isLight) {
+        img.setAttribute('src', lightSrc);
+      } else {
+        img.setAttribute('src', darkSrc);
+      }
     });
   }
 
